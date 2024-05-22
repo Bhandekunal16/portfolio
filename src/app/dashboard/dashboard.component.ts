@@ -42,7 +42,7 @@ export class DashboardComponent {
         }
       },
       {
-        label: 'Service',
+        label: 'Project',
         icon: 'pi pi-briefcase',
         command: () => {
           this.service();
