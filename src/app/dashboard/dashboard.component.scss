@@ -10,6 +10,22 @@
   height: 85vh;
   margin-top: 1%;
   background-image: url("../../assets/716762667674636d6c71.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.dashboard-Img h1 {
+  margin: 0;
+}
+
+.dashboard-container p {
+    margin-left: 1%;
 }
 
 @media (max-width: 600px) {
