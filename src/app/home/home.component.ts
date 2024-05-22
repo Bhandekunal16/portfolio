@@ -15,4 +15,10 @@ export class HomeComponent {
   About(): void {
     this.router.navigate(['/about']);
   }
+
+  personalInfo: { name: string; email: string; contact: string } = {
+    name: 'Kunal Eknath Bhande',
+    email: 'bhandekunal16@gmail.com',
+    contact: '8779143048',
+  };
 }
