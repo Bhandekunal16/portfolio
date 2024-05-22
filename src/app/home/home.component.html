@@ -32,11 +32,11 @@
 
   <h3>Work Experience</h3>
   <ul>
-    <li>
-      Software Developer at Network People Service Technology
+    <li *ngFor="let info of information">
+      {{ info.name }}
       <ul>
-        <li>from : 3 Nov 2022</li>
-        <li>to : present</li>
+        <li>From: {{ info.from }}</li>
+        <li>To: {{ info.to }}</li>
       </ul>
     </li>
   </ul>
