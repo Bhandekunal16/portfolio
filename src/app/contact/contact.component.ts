@@ -58,8 +58,10 @@ export class ContactComponent implements OnInit {
         },
       ];
 
-      if (ele.status) {
-        window.location.reload();
+      if (ele.success) {
+        setInterval(() => {
+          window.location.reload();
+        }, 3000);
       }
     });
   }
