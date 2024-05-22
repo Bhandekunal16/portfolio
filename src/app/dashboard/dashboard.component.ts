@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,6 +11,11 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent {
+  constructor(private router: Router) {}
+
+  About(): void {
+    this.router.navigate(['/about']);
+  }
   item: any[] | undefined;
 
   ngOnInit() {
@@ -25,6 +31,9 @@ export class DashboardComponent {
       {
         label: 'About',
         icon: 'pi pi-user',
+        command: () => {
+          this.About();
+        },
       },
       {
         label: 'Contact',
