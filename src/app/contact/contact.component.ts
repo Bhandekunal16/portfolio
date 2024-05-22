@@ -57,6 +57,10 @@ export class ContactComponent implements OnInit {
           detail: `your message received by us successfully`,
         },
       ];
+
+      if (ele.status) {
+        window.location.reload();
+      }
     });
   }
 
