@@ -48,7 +48,7 @@ export class ContactComponent implements OnInit {
     });
     this.email({
       to: 'roboticdev07@gmail.com',
-      message: message,
+      message: `this is message : ${message}, sender : ${email}`,
     }).subscribe((ele) => {
       this.msg = [
         {
