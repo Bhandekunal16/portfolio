@@ -7,16 +7,19 @@ import {
 import { Observable } from 'rxjs/internal/Observable';
 import { catchError, throwError } from 'rxjs';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { MessagesModule } from 'primeng/messages';
+import { Message } from 'primeng/api';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [HttpClientModule, ReactiveFormsModule],
+  imports: [HttpClientModule, ReactiveFormsModule, MessagesModule],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
 })
 export class ContactComponent implements OnInit {
   public myForm: FormGroup;
+  public msg: Message[] | any;
 
   constructor(private http: HttpClient) {
     this.myForm = new FormGroup({
@@ -35,13 +38,25 @@ export class ContactComponent implements OnInit {
       to: email,
       message: `your message received successfully.`,
     }).subscribe((ele) => {
-      console.log(ele);
+      this.msg = [
+        {
+          severity: 'success',
+          summary: 'success',
+          detail: `your message sent successfully`,
+        },
+      ];
     });
     this.email({
       to: 'roboticdev07@gmail.com',
       message: message,
     }).subscribe((ele) => {
-      console.log(ele);
+      this.msg = [
+        {
+          severity: 'success',
+          summary: 'success',
+          detail: `your message received by us successfully`,
+        },
+      ];
     });
   }
 

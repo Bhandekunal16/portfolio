@@ -1,4 +1,11 @@
 <div class="contact-container">
+  <div class="message-card">
+    <p-messages
+      [value]="msg"
+      [closable]="true"
+      [enableService]="false"
+    ></p-messages>
+  </div>
   <form class="contact-container-form" [formGroup]="myForm">
     <div>
       <h1>Contact Us</h1>
