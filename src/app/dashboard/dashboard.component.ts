@@ -16,6 +16,20 @@ export class DashboardComponent {
   About(): void {
     this.router.navigate(['/about']);
   }
+
+  contact(): void {
+    this.router.navigate(['/contact']);
+  }
+
+  service(): void {
+    this.router.navigate(['/service']);
+  }
+
+  initial(): void {
+    this.router.navigate(['']);
+  }
+  
+
   item: any[] | undefined;
 
   ngOnInit() {
@@ -23,10 +37,16 @@ export class DashboardComponent {
       {
         label: 'Home',
         icon: 'pi pi-home',
+        command: () => {
+          this.initial();
+        }
       },
       {
         label: 'Service',
         icon: 'pi pi-briefcase',
+        command: () => {
+          this.service();
+        },
       },
       {
         label: 'About',
@@ -38,6 +58,9 @@ export class DashboardComponent {
       {
         label: 'Contact',
         icon: 'pi pi-envelope',
+        command: () => {
+          this.contact();
+        },
       },
     ];
   }
