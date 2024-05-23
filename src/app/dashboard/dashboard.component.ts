@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent {
   constructor(private router: Router) {}
+  public item: any[] | undefined;
 
   About(): void {
     this.router.navigate(['/about']);
@@ -28,9 +29,6 @@ export class DashboardComponent {
   initial(): void {
     this.router.navigate(['']);
   }
-  
-
-  item: any[] | undefined;
 
   ngOnInit() {
     this.item = [
@@ -39,7 +37,7 @@ export class DashboardComponent {
         icon: 'pi pi-home',
         command: () => {
           this.initial();
-        }
+        },
       },
       {
         label: 'Project',
