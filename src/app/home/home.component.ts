@@ -13,21 +13,21 @@ import { ButtonModule } from 'primeng/button';
 export class HomeComponent {
   constructor(private router: Router) {}
 
-  About(): void {
-    this.router.navigate(['/about']);
-  }
-
-  personalInfo: { name: string; email: string; contact: string } = {
+  public personalInfo: { name: string; email: string; contact: string } = {
     name: 'Kunal Eknath Bhande',
     email: 'bhandekunal16@gmail.com',
     contact: '8779143048',
   };
 
-  information: Array<{ name: string; from: string; to: string }> = [
+  public information: Array<{ name: string; from: string; to: string }> = [
     {
       name: 'Software Developer at Network People Service Technology',
       from: 'from : 3 Nov 2022',
       to: 'to : present',
     },
   ];
+
+  About(): void {
+    this.router.navigate(['/about']);
+  }
 }
