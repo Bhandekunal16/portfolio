@@ -23,7 +23,7 @@ export class HomeComponent {
     contact: '8779143048',
   };
 
-  information: any = [
+  information: Array<{ name: string; from: string; to: string }> = [
     {
       name: 'Software Developer at Network People Service Technology',
       from: 'from : 3 Nov 2022',
