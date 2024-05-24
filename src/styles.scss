@@ -4,7 +4,11 @@
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 
+/* Import the Poppins font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
 * {
   background-color: #000;
   color: #ffff;
+  font-family: "Poppins", sans-serif;
 }
