@@ -66,3 +66,15 @@
     width: 97vw;
   }
 }
+
+.dashboard-container-button {
+  display: flex;
+  justify-content: space-evenly;
+  width: 20vw;
+}
+
+.dashboard-container-button-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
