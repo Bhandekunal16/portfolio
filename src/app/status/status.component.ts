@@ -29,5 +29,9 @@ export class StatusComponent {
   }
   submitForm() {
     localStorage.setItem('status', this.myForm.value.userType);
+
+    setInterval(() => {
+      window.location.reload();
+    }, 3000);
   }
 }
