@@ -42,12 +42,14 @@ export class StatusComponent {
   submitForm() {
     localStorage.setItem('status', this.myForm.value.userType);
     this.register({ status: this.myForm.value.userType }).subscribe((ele) => {
-      console.log(ele);
+      if (ele) {
+        setInterval(() => {
+          window.location.reload();
+        }, 2000);
+      }
     });
 
-    setInterval(() => {
-      window.location.reload();
-    }, 5000);
+    
   }
 
   register(body: any): Observable<any> {
