@@ -15,6 +15,7 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
+import { StateService } from '../service/state.service';
 
 @Component({
   selector: 'app-status',
@@ -34,7 +35,7 @@ export class StatusComponent {
   public msg: Message[] | any;
   public options: string[] | any = ['AT HOME', 'AT OFFICE', 'AT TRAVEL'];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private _stateSrv: StateService) {
     this.myForm = new FormGroup({
       userType: new FormControl('', Validators.required),
     });
@@ -42,10 +43,8 @@ export class StatusComponent {
   submitForm() {
     localStorage.setItem('status', this.myForm.value.userType);
     this.register({ status: this.myForm.value.userType }).subscribe((ele) => {
-     console.log(ele)
+      this._stateSrv.statusSubject.next(ele);
     });
-
-    
   }
 
   register(body: any): Observable<any> {

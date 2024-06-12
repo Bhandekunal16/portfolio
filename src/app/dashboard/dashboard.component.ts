@@ -8,6 +8,7 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
+import { StateService } from '../service/state.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,7 +18,7 @@ import { Observable, catchError, throwError } from 'rxjs';
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent {
-  constructor(private router: Router, private http: HttpClient) {}
+  constructor(private router: Router, private http: HttpClient,private _stateSrv:StateService) {}
   public item: any[] | undefined;
   public status: any = 'HI';
 
@@ -38,52 +39,55 @@ export class DashboardComponent {
   }
 
   ngOnInit() {
-    this.list().subscribe((ele) => {
-      const encryptedData = ele.encrypted;
-      this.decrypt({
-        key: 'robotic.js',
-        data: encryptedData,
-      }).subscribe((ele) => {
-        this.status = ele.data[0].status
-        console.log(this.status)
-        this.item = [
-          {
-            label: 'Home',
-            icon: 'pi pi-home',
-            command: () => {
-              this.initial();
-            },
-          },
-          {
-            label: 'Project',
-            icon: 'pi pi-briefcase',
-            command: () => {
-              this.service();
-            },
-          },
-          {
-            label: 'About',
-            icon: 'pi pi-user',
-            command: () => {
-              this.About();
-            },
-          },
-          {
-            label: 'Contact',
-            icon: 'pi pi-envelope',
-            command: () => {
-              this.contact();
-            },
-          },
-          {
-            label: ele.data[0].status,
-            icon: 'pi pi-envelope',
-          },
-        ];
-      });
 
-     
-    });
+    this._stateSrv.statusSubject.subscribe((res)=>{
+      this.list().subscribe((ele) => {
+        const encryptedData = ele.encrypted;
+        this.decrypt({
+          key: 'robotic.js',
+          data: encryptedData,
+        }).subscribe((ele) => {
+          this.status = ele.data[0].status
+          console.log(this.status)
+          this.item = [
+            {
+              label: 'Home',
+              icon: 'pi pi-home',
+              command: () => {
+                this.initial();
+              },
+            },
+            {
+              label: 'Project',
+              icon: 'pi pi-briefcase',
+              command: () => {
+                this.service();
+              },
+            },
+            {
+              label: 'About',
+              icon: 'pi pi-user',
+              command: () => {
+                this.About();
+              },
+            },
+            {
+              label: 'Contact',
+              icon: 'pi pi-envelope',
+              command: () => {
+                this.contact();
+              },
+            },
+            {
+              label: ele.data[0].status,
+              icon: 'pi pi-envelope',
+            },
+          ];
+        });
+  
+       
+      });
+    })
   }
 
   list(): Observable<any> {
