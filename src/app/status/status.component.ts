@@ -47,7 +47,7 @@ export class StatusComponent {
 
     setInterval(() => {
       window.location.reload();
-    }, 3000);
+    }, 5000);
   }
 
   register(body: any): Observable<any> {
