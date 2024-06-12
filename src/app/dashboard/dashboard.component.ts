@@ -46,11 +46,13 @@ export class DashboardComponent {
     this._stateSrv.statusSubject.subscribe((res) => {
       this.list().subscribe((ele) => {
         const encryptedData = ele.encrypted;
+        console.log(encryptedData)
         this.decrypt({
           key: 'robotic.js',
           data: encryptedData,
         }).subscribe((ele) => {
           this.status = ele.data[0].status;
+          console.log(this.status)
           this.item = [
             {
               label: 'Home',
