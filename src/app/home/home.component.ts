@@ -1,7 +1,10 @@
 import { CommonModule } from '@angular/common';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
+import { StateService } from '../service/state.service';
+import { Observable, catchError, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +14,12 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  constructor(private router: Router) {}
+  public status: any = '';
+  constructor(
+    private router: Router,
+    private http: HttpClient,
+    private _stateSrv: StateService
+  ) {}
 
   public personalInfo: { name: string; email: string; contact: string } = {
     name: 'Kunal Eknath Bhande',
@@ -29,5 +37,53 @@ export class HomeComponent {
 
   About(): void {
     this.router.navigate(['/about']);
+  }
+
+  ngOnInit() {
+    this._stateSrv.statusSubject.subscribe((res) => {
+      this.list().subscribe((ele) => {
+        const encryptedData = ele.encrypted;
+        console.log(encryptedData);
+        this.decrypt({
+          key: 'robotic.js',
+          data: encryptedData,
+        }).subscribe((ele) => {
+          this.status = ele.data[0].status;
+          console.log(this.status);
+        });
+      });
+    });
+  }
+
+  list(): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    return this.http
+      .get<any>(`https://device-probe.vercel.app/get/portfolio/status`, {
+        headers,
+      })
+      .pipe(
+        catchError((error) => {
+          return throwError(error);
+        })
+      );
+  }
+
+  decrypt(body: any): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    return this.http
+      .post<any>('https://device-probe.vercel.app/decrypt', body, {
+        headers,
+      })
+      .pipe(
+        catchError((error) => {
+          return throwError(error);
+        })
+      );
   }
 }
