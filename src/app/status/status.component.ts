@@ -20,7 +20,7 @@ import { Message } from 'primeng/api';
 export class StatusComponent {
   public myForm: FormGroup;
   public msg: Message[] | any;
-  public options: string[] | any = ['CUSTOMER', 'MERCHANT'];
+  public options: string[] | any = ['AT HOME', 'AT OFFICE', 'AT TRAVEL'];
 
   constructor() {
     this.myForm = new FormGroup({
