@@ -45,8 +45,6 @@ export class DashboardComponent {
         key: 'robotic.js',
         data: encryptedData,
       }).subscribe((ele) => {
-        console.log(ele.data[0].status);
-
         this.item = [
           {
             label: 'Home',
