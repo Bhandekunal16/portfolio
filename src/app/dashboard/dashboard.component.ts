@@ -45,46 +45,44 @@ export class DashboardComponent {
         key: 'robotic.js',
         data: encryptedData,
       }).subscribe((ele) => {
-        console.log(ele);
+        console.log(ele.data[0].status);
 
-        this.status = ele.data[0].status;
+        this.item = [
+          {
+            label: 'Home',
+            icon: 'pi pi-home',
+            command: () => {
+              this.initial();
+            },
+          },
+          {
+            label: 'Project',
+            icon: 'pi pi-briefcase',
+            command: () => {
+              this.service();
+            },
+          },
+          {
+            label: 'About',
+            icon: 'pi pi-user',
+            command: () => {
+              this.About();
+            },
+          },
+          {
+            label: 'Contact',
+            icon: 'pi pi-envelope',
+            command: () => {
+              this.contact();
+            },
+          },
+          {
+            label: ele.data[0].status,
+            icon: 'pi pi-envelope',
+          },
+        ];
       });
     });
-
-    this.item = [
-      {
-        label: 'Home',
-        icon: 'pi pi-home',
-        command: () => {
-          this.initial();
-        },
-      },
-      {
-        label: 'Project',
-        icon: 'pi pi-briefcase',
-        command: () => {
-          this.service();
-        },
-      },
-      {
-        label: 'About',
-        icon: 'pi pi-user',
-        command: () => {
-          this.About();
-        },
-      },
-      {
-        label: 'Contact',
-        icon: 'pi pi-envelope',
-        command: () => {
-          this.contact();
-        },
-      },
-      {
-        label: this.status,
-        icon: 'pi pi-envelope',
-      },
-    ];
   }
 
   list(): Observable<any> {
