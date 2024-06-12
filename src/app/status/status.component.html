@@ -11,10 +11,16 @@
     <div class="forgetPassword-container-form-top">
       <h1>Send otp</h1>
     </div>
+
     <div class="forgetPassword-container-form-input">
-      <label>email </label>
-      <input type="text" placeholder="email" formControlName="email" />
+      <label>Status</label>
+      <select formControlName="userType">
+        <option *ngFor="let option of options" [value]="option">
+          {{ option }}
+        </option>
+      </select>
     </div>
+
     <div class="forgetPassword-container-form-button">
       <button
         pButton
