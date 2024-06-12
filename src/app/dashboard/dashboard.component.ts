@@ -18,7 +18,11 @@ import { StateService } from '../service/state.service';
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent {
-  constructor(private router: Router, private http: HttpClient,private _stateSrv:StateService) {}
+  constructor(
+    private router: Router,
+    private http: HttpClient,
+    private _stateSrv: StateService
+  ) {}
   public item: any[] | undefined;
   public status: any = 'HI';
 
@@ -39,16 +43,14 @@ export class DashboardComponent {
   }
 
   ngOnInit() {
-
-    this._stateSrv.statusSubject.subscribe((res)=>{
+    this._stateSrv.statusSubject.subscribe((res) => {
       this.list().subscribe((ele) => {
         const encryptedData = ele.encrypted;
         this.decrypt({
           key: 'robotic.js',
           data: encryptedData,
         }).subscribe((ele) => {
-          this.status = ele.data[0].status
-          console.log(this.status)
+          this.status = ele.data[0].status;
           this.item = [
             {
               label: 'Home',
@@ -84,10 +86,8 @@ export class DashboardComponent {
             },
           ];
         });
-  
-       
       });
-    })
+    });
   }
 
   list(): Observable<any> {
