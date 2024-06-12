@@ -40,7 +40,6 @@ export class DashboardComponent {
   ngOnInit() {
     this.list().subscribe((ele) => {
       const encryptedData = ele.encrypted;
-
       this.decrypt({
         key: 'robotic.js',
         data: encryptedData,
