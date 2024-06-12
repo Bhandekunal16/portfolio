@@ -42,11 +42,7 @@ export class StatusComponent {
   submitForm() {
     localStorage.setItem('status', this.myForm.value.userType);
     this.register({ status: this.myForm.value.userType }).subscribe((ele) => {
-      if (ele) {
-        setInterval(() => {
-          window.location.reload();
-        }, 2000);
-      }
+     console.log(ele)
     });
 
     

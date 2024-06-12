@@ -19,7 +19,7 @@ import { Observable, catchError, throwError } from 'rxjs';
 export class DashboardComponent {
   constructor(private router: Router, private http: HttpClient) {}
   public item: any[] | undefined;
-  public status: any = '';
+  public status: any = 'HI';
 
   About(): void {
     this.router.navigate(['/about']);
@@ -45,42 +45,44 @@ export class DashboardComponent {
         data: encryptedData,
       }).subscribe((ele) => {
         this.status = ele.data[0].status
+        console.log(this.status)
+        this.item = [
+          {
+            label: 'Home',
+            icon: 'pi pi-home',
+            command: () => {
+              this.initial();
+            },
+          },
+          {
+            label: 'Project',
+            icon: 'pi pi-briefcase',
+            command: () => {
+              this.service();
+            },
+          },
+          {
+            label: 'About',
+            icon: 'pi pi-user',
+            command: () => {
+              this.About();
+            },
+          },
+          {
+            label: 'Contact',
+            icon: 'pi pi-envelope',
+            command: () => {
+              this.contact();
+            },
+          },
+          {
+            label: ele.data[0].status,
+            icon: 'pi pi-envelope',
+          },
+        ];
       });
 
-      this.item = [
-        {
-          label: 'Home',
-          icon: 'pi pi-home',
-          command: () => {
-            this.initial();
-          },
-        },
-        {
-          label: 'Project',
-          icon: 'pi pi-briefcase',
-          command: () => {
-            this.service();
-          },
-        },
-        {
-          label: 'About',
-          icon: 'pi pi-user',
-          command: () => {
-            this.About();
-          },
-        },
-        {
-          label: 'Contact',
-          icon: 'pi pi-envelope',
-          command: () => {
-            this.contact();
-          },
-        },
-        {
-          label: this.status,
-          icon: 'pi pi-envelope',
-        },
-      ];
+     
     });
   }
 
