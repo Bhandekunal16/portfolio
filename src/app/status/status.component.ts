@@ -1,6 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { MessagesModule } from 'primeng/messages';
 import { Message } from 'primeng/api';
@@ -22,5 +27,7 @@ export class StatusComponent {
       userType: new FormControl('', Validators.required),
     });
   }
-  submitForm() {}
+  submitForm() {
+    localStorage.setItem('status', this.myForm.value.userType);
+  }
 }
