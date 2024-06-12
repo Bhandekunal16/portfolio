@@ -41,6 +41,9 @@ export class StatusComponent {
   }
   submitForm() {
     localStorage.setItem('status', this.myForm.value.userType);
+    this.register({ status: this.myForm.value.userType }).subscribe((ele) => {
+      console.log(ele);
+    });
 
     setInterval(() => {
       window.location.reload();
@@ -53,7 +56,9 @@ export class StatusComponent {
     });
 
     return this.http
-      .post<any>('http://localhost:3003/auth/register', body, { headers })
+      .post<any>('https://device-probe.vercel.app/edit/portfolio', body, {
+        headers,
+      })
       .pipe(
         catchError((error) => {
           return throwError(error);
