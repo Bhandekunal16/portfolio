@@ -61,7 +61,7 @@ export class DashboardComponent {
         },
       },
       {
-        label: 'Contact',
+        label: localStorage.getItem('status'),
         icon: 'pi pi-envelope',
       }
     ];
