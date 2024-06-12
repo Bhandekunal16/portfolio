@@ -60,6 +60,10 @@ export class DashboardComponent {
           this.contact();
         },
       },
+      {
+        label: 'Contact',
+        icon: 'pi pi-envelope',
+      }
     ];
   }
 }
