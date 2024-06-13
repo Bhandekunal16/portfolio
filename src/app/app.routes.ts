@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { ServiceComponent } from './service/service.component';
 import { StatusComponent } from './status/status.component';
+import { PackageComponent } from './package/package.component';
 
 export const routes: Routes = [
   {
@@ -15,7 +16,8 @@ export const routes: Routes = [
       { path: 'about', component: AboutComponent },
       { path: 'contact', component: ContactComponent },
       { path: 'service', component: ServiceComponent },
-      { path : 'status', component : StatusComponent}
+      { path: 'status', component: StatusComponent },
+      { path: 'package', component: PackageComponent },
     ],
   },
 ];
