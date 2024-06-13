@@ -14,7 +14,7 @@ import { Observable, catchError, throwError } from 'rxjs';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  public status: any = '';
+  public status: any | string = '';
   public personalInfo: { name: string; email: string; contact: string } = {
     name: 'Kunal Eknath Bhande',
     email: 'bhandekunal16@gmail.com',
