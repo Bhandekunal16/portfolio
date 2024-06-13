@@ -40,7 +40,8 @@ export class StatusComponent {
       userType: new FormControl('', Validators.required),
     });
   }
-  submitForm() {
+
+  submitForm(): void {
     localStorage.setItem('status', this.myForm.value.userType);
     this.register({ status: this.myForm.value.userType }).subscribe((ele) => {
       this._stateSrv.statusSubject.next(ele);
