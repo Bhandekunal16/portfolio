@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   HttpClient,
   HttpClientModule,
@@ -17,7 +17,7 @@ import { Message } from 'primeng/api';
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent {
   public myForm: FormGroup;
   public msg: Message[] | any;
 
@@ -28,11 +28,9 @@ export class ContactComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
-
-  submit() {
-    const email = this.myForm.value.email;
-    const message = this.myForm.value.message;
+  submit(): void {
+    const email: any = this.myForm.value.email;
+    const message: any = this.myForm.value.message;
 
     this.email({
       to: email,
