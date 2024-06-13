@@ -56,7 +56,6 @@ export class HomeComponent {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-
     return this.http
       .get<any>(`https://device-probe.vercel.app/get/portfolio/status`, {
         headers,
@@ -72,7 +71,6 @@ export class HomeComponent {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-
     return this.http
       .post<any>('https://device-probe.vercel.app/decrypt', body, {
         headers,
