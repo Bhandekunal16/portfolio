@@ -6,9 +6,6 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { ButtonModule } from 'primeng/button';
-import { MessagesModule } from 'primeng/messages';
-import { Message } from 'primeng/api';
 import {
   HttpClient,
   HttpClientModule,
@@ -16,6 +13,9 @@ import {
 } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
 import { StateService } from '../service/state.service';
+import { ButtonModule } from 'primeng/button';
+import { MessagesModule } from 'primeng/messages';
+import { Message } from 'primeng/api';
 
 @Component({
   selector: 'app-status',
