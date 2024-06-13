@@ -5,7 +5,6 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class StateService {
-
   public statusSubject=new BehaviorSubject(null)
   constructor() { }
 }
