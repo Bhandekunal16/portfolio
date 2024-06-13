@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './about.component.scss',
 })
 export class AboutComponent {
-  skills: string[] = [
+  public skills: string[] = [
     'HTML',
     'CSS',
     'JavaScript',
@@ -19,7 +19,7 @@ export class AboutComponent {
     'C++',
     'C#',
   ];
-  backendSkills: string[] = [
+  public backendSkills: string[] = [
     'Node.js',
     'Nest.js',
     'Angular.js',
@@ -28,5 +28,5 @@ export class AboutComponent {
     'React Native',
     '.net',
   ];
-  roboticSkills: string[] = ['robotic.js', 'roboticdb', 'authanticator'];
+  public roboticSkills: string[] = ['robotic.js', 'roboticdb', 'authanticator'];
 }
