@@ -42,6 +42,10 @@ export class DashboardComponent {
     this.router.navigate(['']);
   }
 
+  package(): void {
+    this.router.navigate(['/package']);
+  }
+
   ngOnInit() {
     this.item = [
       {
@@ -70,6 +74,13 @@ export class DashboardComponent {
         icon: 'pi pi-envelope',
         command: () => {
           this.contact();
+        },
+      },
+      {
+        label: 'Package',
+        icon: 'pi pi-envelope',
+        command: () => {
+          this.package();
         },
       },
     ];
