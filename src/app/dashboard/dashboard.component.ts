@@ -78,7 +78,7 @@ export class DashboardComponent {
       },
       {
         label: 'Package',
-        icon: 'pi pi-envelope',
+        icon: 'pi pi-box',
         command: () => {
           this.package();
         },
