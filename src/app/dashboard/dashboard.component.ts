@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { MenubarModule } from 'primeng/menubar';
-import { ButtonModule } from 'primeng/button';
 import { Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { MenubarModule } from 'primeng/menubar';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-dashboard',
