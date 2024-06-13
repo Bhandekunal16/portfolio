@@ -15,12 +15,6 @@ import { Observable, catchError, throwError } from 'rxjs';
 })
 export class HomeComponent {
   public status: any = '';
-  constructor(
-    private router: Router,
-    private http: HttpClient,
-    private _stateSrv: StateService
-  ) {}
-
   public personalInfo: { name: string; email: string; contact: string } = {
     name: 'Kunal Eknath Bhande',
     email: 'bhandekunal16@gmail.com',
@@ -34,6 +28,11 @@ export class HomeComponent {
       to: 'to : present',
     },
   ];
+  constructor(
+    private router: Router,
+    private http: HttpClient,
+    private _stateSrv: StateService
+  ) {}
 
   About(): void {
     this.router.navigate(['/about']);
