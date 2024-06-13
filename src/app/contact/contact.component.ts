@@ -4,9 +4,9 @@ import {
   HttpClientModule,
   HttpHeaders,
 } from '@angular/common/http';
+import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Observable } from 'rxjs/internal/Observable';
 import { catchError, throwError } from 'rxjs';
-import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MessagesModule } from 'primeng/messages';
 import { Message } from 'primeng/api';
 
