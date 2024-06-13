@@ -51,7 +51,6 @@ export class StatusComponent {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-
     return this.http
       .post<any>('https://device-probe.vercel.app/edit/portfolio', body, {
         headers,
