@@ -2,13 +2,7 @@ import { Component } from '@angular/core';
 import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
 import { Router } from '@angular/router';
-import {
-  HttpClient,
-  HttpClientModule,
-  HttpHeaders,
-} from '@angular/common/http';
-import { Observable, catchError, throwError } from 'rxjs';
-import { StateService } from '../service/state.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,11 +12,7 @@ import { StateService } from '../service/state.service';
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent {
-  constructor(
-    private router: Router,
-    private http: HttpClient,
-    private _stateSrv: StateService
-  ) {}
+  constructor(private router: Router) {}
   public item: any[] | undefined;
   public status: any = 'HI';
 
