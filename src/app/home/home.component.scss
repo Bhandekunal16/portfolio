@@ -59,6 +59,31 @@
   align-items: center;
 }
 
+#div3 {
+  width: 50%;
+  height: fit-content;
+  background-color: transparent;
+  font-weight: bold;
+  position: relative;
+  animation: myMove 5s;
+  animation-fill-mode: forwards;
+  border: dotted #fff 1px;
+  padding: 1%;
+}
+
+#div3 {
+  animation-timing-function: ease-in;
+}
+
+@keyframes myMove {
+  from {
+    left: 0px;
+  }
+  to {
+    left: 20vw;
+  }
+}
+
 @media (max-width: 600px) {
   .dashboard-container {
     width: 97vw;
@@ -71,6 +96,15 @@
   .dashboard-container-button {
     margin-top: 1%;
     width: 60vw;
+  }
+
+  @keyframes myMove {
+    from {
+      left: 0px;
+    }
+    to {
+      left: 20vw;
+    }
   }
 }
 
