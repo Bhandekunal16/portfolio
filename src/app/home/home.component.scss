@@ -108,3 +108,9 @@
     width: 97vw;
   }
 }
+
+.dashboard-container:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-7px);
+  transition: box-shadow 0.3s, transform 0.3s;
+}

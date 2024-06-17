@@ -6,3 +6,9 @@
   border-radius: 8px;
   overflow: auto;
 }
+
+.package-grid:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-7px);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
