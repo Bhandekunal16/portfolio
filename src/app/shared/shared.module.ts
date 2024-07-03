@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { MessagesModule } from 'primeng/messages';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MenubarModule } from 'primeng/menubar';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [],
@@ -12,6 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MessagesModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MenubarModule,
+    ButtonModule,
   ],
 })
 export class SharedModule {}
