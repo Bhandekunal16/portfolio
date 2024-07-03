@@ -38,4 +38,16 @@
     <p>file Count {{ item?.value?.dist?.fileCount}}</p>
     <p>unpacked Size {{ item?.value?.dist?.unpackedSize / 1024 }} KB</p>
   </div>
+
+  <div *ngFor="let item of dataList">
+    <div *ngFor="let innerItem of item">
+      <div *ngIf="innerItem">
+        <pre>{{ innerItem | json }}</pre>
+      </div>
+      <div *ngIf="!innerItem">
+        <p>null</p>
+      </div>
+    </div>
+  </div>
+  
 </div>
