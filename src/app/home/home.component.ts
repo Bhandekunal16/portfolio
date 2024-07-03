@@ -1,15 +1,14 @@
-import { CommonModule } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ButtonModule } from 'primeng/button';
 import { StateService } from '../service/state.service';
 import { Observable, catchError, throwError } from 'rxjs';
+import { SharedModule } from '../shared/shared.module';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ButtonModule, CommonModule],
+  imports: [SharedModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
