@@ -49,8 +49,6 @@ export class PackageInformationComponent {
 
         const obj: any = ele.data.time;
         const obj2: any = ele.data.versions;
-        const arr: any[] = [];
-        const arr2: any[] = [];
         const next: any[] = [];
         const lastElements: any[] = [];
 
@@ -66,9 +64,8 @@ export class PackageInformationComponent {
         }
         const lastindex = next.length - 1;
 
-        for (let key in next[lastindex]) {
-          lastElements.push(next[lastindex][key]);
-        }
+        lastElements.push(...Object.values(next[lastindex]));
+
 
         this.dataList = Object.keys(lastElements[0]).map((key) => ({
           key: key,
