@@ -26,6 +26,7 @@ export class PackageInformationComponent {
   public date: any[] = [];
   public ex: string = `const match: any = new database().getByProperties( { key : "value" },'name');`;
   public ex2: string = `const match: any = brain.getByProperties( { key: "value" }, 'name' );`;
+  public data: any[] = [];
 
   ngOnInit(): void {
     this.info().subscribe((ele) => {
@@ -43,6 +44,15 @@ export class PackageInformationComponent {
         arr.push({ key: key, value: obj[key] });
       }
       this.date = arr;
+    });
+
+    this.info().subscribe((ele) => {
+      const obj = ele.data.versions;
+      const arr = [];
+      for (let key in obj) {
+        arr.push({ key: key, value: obj[key] });
+      }
+      this.data = arr;
     });
   }
 
