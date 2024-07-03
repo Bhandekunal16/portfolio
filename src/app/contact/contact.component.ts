@@ -24,9 +24,11 @@ export class ContactComponent {
     });
   }
 
-  submit(): void {
-    const email: any = this.myForm.value.email;
-    const message: any = this.myForm.value.message;
+  public submit(): void {
+    const [email, message]: [any, any] = [
+      this.myForm.value.email,
+      this.myForm.value.message,
+    ];
 
     this.email({
       to: email,
@@ -60,7 +62,7 @@ export class ContactComponent {
     });
   }
 
-  email(body: any): Observable<any> {
+  private email(body: any): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
