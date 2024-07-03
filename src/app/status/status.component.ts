@@ -24,14 +24,14 @@ export class StatusComponent {
     });
   }
 
-  submitForm(): void {
+  public submitForm(): void {
     localStorage.setItem('status', this.myForm.value.userType);
     this.register({ status: this.myForm.value.userType }).subscribe((ele) => {
       this._stateSrv.statusSubject.next(ele);
     });
   }
 
-  register(body: any): Observable<any> {
+  private register(body: any): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
