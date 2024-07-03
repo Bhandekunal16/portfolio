@@ -34,8 +34,6 @@ export class PackageInformationComponent {
   public ex2: string = `const match: any = brain.getByProperties( { key: "value" }, 'name' );`;
   public data: any[] = [];
   public myForm: FormGroup;
-  public nodes!: any[];
-  public selectedNodes: any;
   public data2: any[] = [];
 
   call() {
