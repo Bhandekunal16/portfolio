@@ -65,8 +65,7 @@ export class PackageInformationComponent {
         const lastindex = next.length - 1;
 
         lastElements.push(...Object.values(next[lastindex]));
-
-
+        
         this.dataList = Object.keys(lastElements[0]).map((key) => ({
           key: key,
           value: lastElements[0][key],
