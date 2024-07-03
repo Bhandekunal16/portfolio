@@ -4,7 +4,7 @@ import {
   HttpClientModule,
   HttpHeaders,
 } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 
