@@ -75,12 +75,10 @@ export class PackageInformationComponent {
           lastElements.push(next[lastindex][key]);
         }
 
-        let nnn = Object.keys(lastElements[0]).map((key) => ({
+        this.dataList = Object.keys(lastElements[0]).map((key) => ({
           key: key,
           value: lastElements[0][key],
         }));
-
-        this.dataList = nnn;
       }
     );
   }
