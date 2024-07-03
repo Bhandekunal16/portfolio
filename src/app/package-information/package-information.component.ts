@@ -6,16 +6,21 @@ import {
 } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
+import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-package-information',
   standalone: true,
-  imports: [HttpClientModule, CommonModule],
+  imports: [HttpClientModule, CommonModule, ReactiveFormsModule],
   templateUrl: './package-information.component.html',
   styleUrl: './package-information.component.scss',
 })
 export class PackageInformationComponent {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.myForm = new FormGroup({
+      PackageName: new FormControl(''),
+    });
+  }
   public name: string | undefined;
   public createdOn: string | undefined | Date | number;
   public modifiedOn: string | undefined | Date | number;
@@ -27,9 +32,12 @@ export class PackageInformationComponent {
   public ex: string = `const match: any = new database().getByProperties( { key : "value" },'name');`;
   public ex2: string = `const match: any = brain.getByProperties( { key: "value" }, 'name' );`;
   public data: any[] = [];
+  public myForm: FormGroup;
+  public nodes!: any[];
+  public selectedNodes: any;
 
-  ngOnInit(): void {
-    this.info().subscribe((ele) => {
+  call(){
+    this.info({name : this.myForm.get('PackageName')?.value}).subscribe((ele) => {
       this.name = ele.data.name?.toUpperCase();
       this.createdOn = new Date(ele.data.time.created).toDateString();
       this.modifiedOn = new Date(ele.data.time.modified).toDateString();
@@ -44,23 +52,27 @@ export class PackageInformationComponent {
         arr.push({ key: key, value: obj[key] });
       }
       this.date = arr;
+
+
+      const obj2 = ele.data.versions;
+      console.log(obj2)
+      const arr2: any[] = [];
+      for (let key in obj2) {
+        arr2.push({ key: key, value: obj2[key] });
+      }
+      this.data = arr2;
+      console.log(this.data)
     });
 
-    this.info().subscribe((ele) => {
-      const obj = ele.data.versions;
-      const arr = [];
-      for (let key in obj) {
-        arr.push({ key: key, value: obj[key] });
-      }
-      this.data = arr;
-    });
+
+
   }
 
   formatDate(date: any): string {
     return new Date(date).toDateString();
   }
 
-  info(): Observable<any> {
+  info(name: any): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
@@ -68,7 +80,7 @@ export class PackageInformationComponent {
     return this.http
       .post<any>(
         'https://townhall-ten.vercel.app/info',
-        { name: 'roboticdb' },
+        { name: name.name },
         { headers }
       )
       .pipe(
