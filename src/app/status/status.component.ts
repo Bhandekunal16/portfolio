@@ -1,32 +1,15 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
-import {
-  HttpClient,
-  HttpClientModule,
-  HttpHeaders,
-} from '@angular/common/http';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
 import { StateService } from '../service/state.service';
-import { ButtonModule } from 'primeng/button';
-import { MessagesModule } from 'primeng/messages';
 import { Message } from 'primeng/api';
+import { SharedModule } from '../shared/shared.module';
 
 @Component({
   selector: 'app-status',
   standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    CommonModule,
-    MessagesModule,
-    ButtonModule,
-    HttpClientModule,
-  ],
+  imports: [SharedModule],
   templateUrl: './status.component.html',
   styleUrl: './status.component.scss',
 })
