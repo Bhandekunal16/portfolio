@@ -16,8 +16,7 @@ import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './package-information.component.scss',
 })
 export class PackageInformationComponent {
-
-dataList: any;
+  dataList: any;
   constructor(private http: HttpClient) {
     this.myForm = new FormGroup({
       PackageName: new FormControl(''),
@@ -65,15 +64,28 @@ dataList: any;
         this.data = arr2;
 
         const next = [];
-  
-
         for (let index = 0; index < this.data.length; index++) {
           const dependencies = this.data[index].value.dependencies;
           next.push([dependencies]);
         }
 
-        this.dataList = next
-        console.log(next);
+        const lastindex = next.length - 1;
+
+        console.log(next[lastindex]);
+
+        const lastElements: any[] = [];
+        for (let key in next[lastindex]) {
+          lastElements.push(next[lastindex][key]);
+        }
+
+      
+
+        let nnn = Object.keys(lastElements[0]).map(key => ({ key: key, value: lastElements[0][key] }));
+
+        console.log(this.dataList);
+        console.log(nnn)
+
+        this.dataList = nnn;
       }
     );
   }

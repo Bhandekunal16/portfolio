@@ -1,7 +1,12 @@
 <h1>{{ name }}</h1>
 <form class="contact-container-form" [formGroup]="myForm">
   <label for="PackageName">Package Name</label>
-  <input  id="PackageName" name="Package Name" formControlName="PackageName" (input)="call()"/>
+  <input
+    id="PackageName"
+    name="Package Name"
+    formControlName="PackageName"
+    (input)="call()"
+  />
 </form>
 
 <div class="Package-information">
@@ -13,6 +18,11 @@
   <p>description : {{ description }}</p>
   <p>maintainers : {{ maintainers }}</p>
   <p>license : {{ license }}</p>
+
+  <p>dependencies</p>
+  <div *ngFor="let key of dataList" class="Package-information">
+    <p>{{ key.key }}: {{ key.value }}</p>
+  </div>
 </div>
 
 <div class="loader-container" *ngIf="date.length == 0">
@@ -35,19 +45,7 @@
     <p>{{ item?.value?.name }}</p>
     <p>Node Version {{ item?.value?._nodeVersion }}</p>
     <p>Npm version {{ item?.value?._npmVersion }}</p>
-    <p>file Count {{ item?.value?.dist?.fileCount}}</p>
+    <p>file Count {{ item?.value?.dist?.fileCount }}</p>
     <p>unpacked Size {{ item?.value?.dist?.unpackedSize / 1024 }} KB</p>
   </div>
-
-  <div *ngFor="let item of dataList">
-    <div *ngFor="let innerItem of item">
-      <div *ngIf="innerItem">
-        <pre>{{ innerItem | json }}</pre>
-      </div>
-      <div *ngIf="!innerItem">
-        <p>null</p>
-      </div>
-    </div>
-  </div>
-  
 </div>
