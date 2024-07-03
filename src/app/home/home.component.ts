@@ -33,7 +33,7 @@ export class HomeComponent {
     private _stateSrv: StateService
   ) {}
 
-  About(): void {
+  public About(): void {
     this.router.navigate(['/about']);
   }
 
@@ -51,7 +51,7 @@ export class HomeComponent {
     });
   }
 
-  list(): Observable<any> {
+  private list(): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
@@ -66,7 +66,7 @@ export class HomeComponent {
       );
   }
 
-  decrypt(body: any): Observable<any> {
+  private decrypt(body: any): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
