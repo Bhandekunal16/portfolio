@@ -47,10 +47,12 @@ export class PackageInformationComponent {
         this.maintainers = ele.data.maintainers[0].name;
         this.license = ele.data.license;
 
-        const obj: any = ele.data.time;
-        const obj2: any = ele.data.versions;
-        const next: any[] = [];
-        const lastElements: any[] = [];
+        const [obj, obj2, next, lastElements]: [any, any, any[], any[]] = [
+          ele.data.time,
+          ele.data.versions,
+          [],
+          [],
+        ];
 
         this.date = Object.entries(obj).map(([key, value]) => ({ key, value }));
         this.data = Object.entries(obj2).map(([key, value]) => ({
@@ -65,7 +67,7 @@ export class PackageInformationComponent {
         const lastindex = next.length - 1;
 
         lastElements.push(...Object.values(next[lastindex]));
-        
+
         this.dataList = Object.keys(lastElements[0]).map((key) => ({
           key: key,
           value: lastElements[0][key],
