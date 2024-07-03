@@ -12,12 +12,12 @@ import { SharedModule } from '../shared/shared.module';
   styleUrl: './package-information.component.scss',
 })
 export class PackageInformationComponent {
-  dataList: any;
   constructor(private http: HttpClient) {
     this.myForm = new FormGroup({
       PackageName: new FormControl(''),
     });
   }
+  public dataList: any;
   public name: string | undefined;
   public createdOn: string | undefined | Date | number;
   public modifiedOn: string | undefined | Date | number;
@@ -26,13 +26,11 @@ export class PackageInformationComponent {
   public maintainers: string | undefined;
   public license: string | undefined;
   public date: any[] = [];
-  public ex: string = `const match: any = new database().getByProperties( { key : "value" },'name');`;
-  public ex2: string = `const match: any = brain.getByProperties( { key: "value" }, 'name' );`;
   public data: any[] = [];
   public myForm: FormGroup;
   public data2: any[] = [];
 
-  call() {
+  public call(): void {
     this.info({ name: this.myForm.get('PackageName')?.value }).subscribe(
       (ele) => {
         this.name = ele.data.name?.toUpperCase();
@@ -72,11 +70,11 @@ export class PackageInformationComponent {
     );
   }
 
-  formatDate(date: any): string {
+  public formatDate(date: any): string {
     return new Date(date).toDateString();
   }
 
-  info(name: any): Observable<any> {
+  private info(name: any): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
