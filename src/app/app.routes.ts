@@ -6,6 +6,7 @@ import { ContactComponent } from './contact/contact.component';
 import { ServiceComponent } from './service/service.component';
 import { StatusComponent } from './status/status.component';
 import { PackageComponent } from './package/package.component';
+import { PackageInformationComponent } from './package-information/package-information.component';
 
 export const routes: Routes = [
   {
@@ -18,6 +19,7 @@ export const routes: Routes = [
       { path: 'service', component: ServiceComponent },
       { path: 'status', component: StatusComponent },
       { path: 'package', component: PackageComponent },
+      { path: 'package-information', component: PackageInformationComponent },
     ],
   },
 ];

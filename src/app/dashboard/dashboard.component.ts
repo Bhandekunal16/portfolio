@@ -36,6 +36,10 @@ export class DashboardComponent {
     this.router.navigate(['/package']);
   }
 
+  packageInformation(): void {
+    this.router.navigate(['/package-information']);
+  }
+
   ngOnInit() {
     this.item = [
       {
@@ -73,6 +77,13 @@ export class DashboardComponent {
           this.package();
         },
       },
+      {
+        label: 'Package-information',
+        icon: 'pi pi-box',
+        command: () => {
+          this.package();
+        },
+      }
     ];
   }
 }
