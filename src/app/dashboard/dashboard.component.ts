@@ -14,27 +14,27 @@ export class DashboardComponent {
   public item: any[] | undefined;
   public status: any = 'HI';
 
-  About(): void {
+  private About(): void {
     this.router.navigate(['/about']);
   }
 
-  contact(): void {
+  private contact(): void {
     this.router.navigate(['/contact']);
   }
 
-  service(): void {
+  private service(): void {
     this.router.navigate(['/service']);
   }
 
-  initial(): void {
+  private initial(): void {
     this.router.navigate(['']);
   }
 
-  package(): void {
+  private package(): void {
     this.router.navigate(['/package']);
   }
 
-  packageInformation(): void {
+  private packageInformation(): void {
     this.router.navigate(['/package-information']);
   }
 
