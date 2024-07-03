@@ -1,17 +1,13 @@
-import { CommonModule } from '@angular/common';
-import {
-  HttpClient,
-  HttpClientModule,
-  HttpHeaders,
-} from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
-import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 @Component({
   selector: 'app-package-information',
   standalone: true,
-  imports: [HttpClientModule, CommonModule, ReactiveFormsModule],
+  imports: [SharedModule],
   templateUrl: './package-information.component.html',
   styleUrl: './package-information.component.scss',
 })
