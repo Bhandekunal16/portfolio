@@ -54,21 +54,16 @@ export class PackageInformationComponent {
         const next: any[] = [];
         const lastElements: any[] = [];
 
-        for (let key in obj) {
-          arr.push({ key: key, value: obj[key] });
-        }
-        this.date = arr;
-
-        for (let key in obj2) {
-          arr2.push({ key: key, value: obj2[key] });
-        }
-        this.data = arr2;
+        this.date = Object.entries(obj).map(([key, value]) => ({ key, value }));
+        this.data = Object.entries(obj2).map(([key, value]) => ({
+          key,
+          value,
+        }));
 
         for (let index = 0; index < this.data.length; index++) {
           const dependencies = this.data[index].value.dependencies;
           next.push([dependencies]);
         }
-
         const lastindex = next.length - 1;
 
         for (let key in next[lastindex]) {
