@@ -64,7 +64,7 @@ export class PackageInformationComponent {
           const dependencies = this.data[index].value.dependencies;
           next.push([dependencies]);
         }
-        const lastindex = next.length - 1;
+        const lastindex: number = next.length - 1;
 
         lastElements.push(...Object.values(next[lastindex]));
 
