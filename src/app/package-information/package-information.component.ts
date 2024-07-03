@@ -69,8 +69,6 @@ export class PackageInformationComponent {
 
         const lastindex = next.length - 1;
 
-        console.log(next[lastindex]);
-
         const lastElements: any[] = [];
         for (let key in next[lastindex]) {
           lastElements.push(next[lastindex][key]);
@@ -79,9 +77,6 @@ export class PackageInformationComponent {
       
 
         let nnn = Object.keys(lastElements[0]).map(key => ({ key: key, value: lastElements[0][key] }));
-
-        console.log(this.dataList);
-        console.log(nnn)
 
         this.dataList = nnn;
       }
