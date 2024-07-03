@@ -47,11 +47,11 @@ export class PackageInformationComponent {
         this.maintainers = ele.data.maintainers[0].name;
         this.license = ele.data.license;
 
-        const obj = ele.data.time;
-        const obj2 = ele.data.versions;
-        const arr = [];
+        const obj: any = ele.data.time;
+        const obj2: any = ele.data.versions;
+        const arr: any[] = [];
         const arr2: any[] = [];
-        const next = [];
+        const next: any[] = [];
         const lastElements: any[] = [];
 
         for (let key in obj) {
