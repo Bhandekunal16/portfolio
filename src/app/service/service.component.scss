@@ -2,6 +2,11 @@
   border: dotted #000 1px;
   padding: 1%;
   overflow: auto;
+  background-color: #fbc986;
+}
+
+.service-container {
+  color: #6e4538;
 }
 
 .service-container-list-div:hover {
@@ -10,20 +15,20 @@
   transition: box-shadow 0.3s, transform 0.3s;
 }
 
-
 .service-container-list-div {
   font-family: Arial, sans-serif;
   padding: 20px;
   background-color: transparent;
-  border: 1px solid #ddd;
+  border: 1px dotted #000;
   border-radius: 8px;
   width: 95vw;
   margin: 0 auto;
   margin-top: 1%;
+  background-color: #fff;
 }
 
-.service-container-list-div h3 {
-  color: #ddd;
+.service-container-list-div h2 {
+  color: #6e4538;
   text-align: center;
   margin-bottom: 20px;
 }
