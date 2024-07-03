@@ -48,20 +48,22 @@ export class PackageInformationComponent {
         this.license = ele.data.license;
 
         const obj = ele.data.time;
+        const obj2 = ele.data.versions;
         const arr = [];
+        const arr2: any[] = [];
+        const next = [];
+        const lastElements: any[] = [];
+
         for (let key in obj) {
           arr.push({ key: key, value: obj[key] });
         }
         this.date = arr;
 
-        const obj2 = ele.data.versions;
-        const arr2: any[] = [];
         for (let key in obj2) {
           arr2.push({ key: key, value: obj2[key] });
         }
         this.data = arr2;
 
-        const next = [];
         for (let index = 0; index < this.data.length; index++) {
           const dependencies = this.data[index].value.dependencies;
           next.push([dependencies]);
@@ -69,7 +71,6 @@ export class PackageInformationComponent {
 
         const lastindex = next.length - 1;
 
-        const lastElements: any[] = [];
         for (let key in next[lastindex]) {
           lastElements.push(next[lastindex][key]);
         }
