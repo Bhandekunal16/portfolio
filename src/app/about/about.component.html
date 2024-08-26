@@ -19,16 +19,22 @@
     <div class="About-grid-sec">
       <h3>Language Proficiency</h3>
       <ul>
-        <li *ngFor="let skill of skills">{{ skill }}</li>
+        @for(skill of skills; track skill) {
+        <li>{{ skill }}</li>
+        }
       </ul>
 
       <h3>Framework Proficiency</h3>
       <ul>
-        <li *ngFor="let skill of backendSkills">{{ skill }}</li>
+        @for(skill of backendSkills; track skill) {
+        <li>{{ skill }}</li>
+        }
       </ul>
       <h3>Npm Packages</h3>
       <ul>
-        <li *ngFor="let skill of roboticSkills">{{ skill }}</li>
+        @for(skill of roboticSkills; track skill) {
+        <li>{{ skill }}</li>
+        }
       </ul>
     </div>
   </div>
