@@ -25,7 +25,7 @@
 .contact-container-form label {
   margin: 10px 0 5px;
   font-size: 1rem;
-  color:  #000;
+  color: #000;
 }
 
 .contact-container-form input,
@@ -50,14 +50,4 @@
 
 .contact-container-form button:hover {
   background-color: #0056b3;
-}
-
-.message-card {
-  width: fit-content;
-  height: 10vh;
-  float: right;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 999;
 }

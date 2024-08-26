@@ -64,3 +64,13 @@ h2 {
   align-items: center;
   margin-top: 10%;
 }
+
+.message-card {
+  width: fit-content;
+  height: 10vh;
+  float: right;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 999;
+}
