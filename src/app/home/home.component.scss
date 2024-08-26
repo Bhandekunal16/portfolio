@@ -59,29 +59,10 @@
   align-items: center;
 }
 
-#div3 {
-  width: 50%;
-  height: fit-content;
-  background-color: transparent;
-  font-weight: bold;
-  position: relative;
-  animation: myMove 5s;
-  animation-fill-mode: forwards;
-  border: dotted #000 1px;
-  padding: 1%;
-}
-
-#div3 {
-  animation-timing-function: ease-in;
-}
-
-@keyframes myMove {
-  from {
-    left: 0px;
-  }
-  to {
-    left: 20vw;
-  }
+.dashboard-container:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-7px);
+  transition: box-shadow 0.3s, transform 0.3s;
 }
 
 @media (max-width: 600px) {
@@ -107,10 +88,4 @@
   .dashboard-Img {
     width: 97vw;
   }
-}
-
-.dashboard-container:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transform: translateY(-7px);
-  transition: box-shadow 0.3s, transform 0.3s;
 }
