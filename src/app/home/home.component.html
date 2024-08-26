@@ -34,14 +34,17 @@
   </ul>
 
   <h3>Work Experience</h3>
+
   <ul>
-    <li *ngFor="let info of information">
+    @for (info of information; track info) {
+    <li>
       {{ info.name }}
       <ul>
         <li>{{ info.from }}</li>
         <li>{{ info.to }}</li>
       </ul>
     </li>
+    }
   </ul>
 
   <div>
@@ -54,7 +57,7 @@
           rel="noopener noreferrer"
           ><p-button severity="secondary" icon="pi pi-github"
         /></a>
-  
+
         <a
           href="https://www.npmjs.com/"
           target="_blank"
@@ -62,7 +65,7 @@
         >
           <p-button severity="secondary" icon="pi pi-ellipsis-v" />
         </a>
-  
+
         <a
           href="https://www.linkedin.com/in/kunal-bhande-2a0582271?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
           target="_blank"
@@ -73,6 +76,4 @@
       </div>
     </div>
   </div>
-
-  
 </div>

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { StateService } from '../service/state.service';
 import { Observable, catchError, throwError } from 'rxjs';
 import { SharedModule } from '../shared/shared.module';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-home',
@@ -30,12 +31,9 @@ export class HomeComponent {
   constructor(
     private router: Router,
     private http: HttpClient,
-    private _stateSrv: StateService
+    private _stateSrv: StateService,
+    private shared: SharedService
   ) {}
-
-  public About(): void {
-    this.router.navigate(['/about']);
-  }
 
   ngOnInit() {
     this._stateSrv.statusSubject.subscribe((res) => {
@@ -52,9 +50,7 @@ export class HomeComponent {
   }
 
   private list(): Observable<any> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-    });
+    const headers = this.shared.header();
     return this.http
       .get<any>(`https://device-probe.vercel.app/get/portfolio/status`, {
         headers,
@@ -67,9 +63,7 @@ export class HomeComponent {
   }
 
   private decrypt(body: any): Observable<any> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-    });
+    const headers = this.shared.header();
     return this.http
       .post<any>('https://device-probe.vercel.app/decrypt', body, {
         headers,
@@ -79,5 +73,9 @@ export class HomeComponent {
           return throwError(error);
         })
       );
+  }
+
+  public About(): void {
+    this.router.navigate(['/about']);
   }
 }
