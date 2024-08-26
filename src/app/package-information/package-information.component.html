@@ -45,3 +45,10 @@
 <div class="loader-container">
   <div class="loader" *ngIf="loader"></div>
 </div>
+<div class="message-card">
+  <p-messages
+    [value]="msg"
+    [closable]="true"
+    [enableService]="false"
+  ></p-messages>
+</div>

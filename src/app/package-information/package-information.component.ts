@@ -4,6 +4,7 @@ import { Observable, catchError, throwError } from 'rxjs';
 import { FormGroup, FormControl } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { SharedService } from '../shared.service';
+import { Message } from 'primeng/api';
 
 @Component({
   selector: 'app-package-information',
@@ -31,9 +32,11 @@ export class PackageInformationComponent {
   public myForm: FormGroup;
   public data2: any[] = [];
   public loader: boolean = false;
+  public msg: Message[] | any;
 
   public call(): void {
     this.loader = true;
+    this.messageHandler('info', 'searching for package');
     this.info({ name: this.myForm.get('PackageName')?.value }).subscribe(
       (ele) => {
         this.name = ele.data.name?.toUpperCase();
@@ -69,6 +72,9 @@ export class PackageInformationComponent {
           key: key,
           value: lastElements[0][key],
         }));
+
+        this.messageHandler('success', `data found for ${this.name}`);
+        this.clearMessage();
       }
     );
     this.loader = false;
@@ -91,5 +97,21 @@ export class PackageInformationComponent {
           return throwError(error);
         })
       );
+  }
+
+  private messageHandler(severity: string, detail: string, summary?: string) {
+    this.msg = [
+      {
+        severity: severity,
+        detail: detail,
+        summary: summary,
+      },
+    ];
+  }
+
+  private clearMessage() {
+    setTimeout(() => {
+      this.msg = [];
+    }, 1000);
   }
 }
