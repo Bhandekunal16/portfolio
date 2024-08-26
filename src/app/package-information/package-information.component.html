@@ -10,7 +10,6 @@
 </form>
 
 <div class="Package-information">
-  <div *ngIf="date.length == 0" class="loader"></div>
   <p>Package Information</p>
   <p>Created on : {{ createdOn }}</p>
   <p>Modified on : {{ modifiedOn }}</p>
@@ -25,10 +24,6 @@
   </div>
 </div>
 
-<div class="loader-container" *ngIf="date.length == 0">
-  <div *ngIf="date.length == 0" class="loader"></div>
-</div>
-
 <h1>Uploaded on</h1>
 <div class="Package-information-date">
   <div *ngFor="let item of date">
@@ -37,9 +32,6 @@
 </div>
 
 <div>
-  <div class="loader-container" *ngIf="data.length == 0">
-    <div *ngIf="data.length == 0" class="loader"></div>
-  </div>
   <div *ngFor="let item of data" class="Package-information">
     <p>{{ item?.key }}</p>
     <p>{{ item?.value?.name }}</p>
@@ -48,4 +40,8 @@
     <p>file Count {{ item?.value?.dist?.fileCount }}</p>
     <p>unpacked Size {{ item?.value?.dist?.unpackedSize / 1024 }} KB</p>
   </div>
+</div>
+
+<div class="loader-container">
+  <div class="loader" *ngIf="loader"></div>
 </div>

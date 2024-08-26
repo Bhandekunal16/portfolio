@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 import { FormGroup, FormControl } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-package-information',
@@ -12,7 +13,7 @@ import { SharedModule } from '../shared/shared.module';
   styleUrl: './package-information.component.scss',
 })
 export class PackageInformationComponent {
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private shared: SharedService) {
     this.myForm = new FormGroup({
       PackageName: new FormControl(''),
     });
@@ -29,8 +30,10 @@ export class PackageInformationComponent {
   public data: any[] = [];
   public myForm: FormGroup;
   public data2: any[] = [];
+  public loader: boolean = false;
 
   public call(): void {
+    this.loader = true;
     this.info({ name: this.myForm.get('PackageName')?.value }).subscribe(
       (ele) => {
         this.name = ele.data.name?.toUpperCase();
@@ -68,6 +71,7 @@ export class PackageInformationComponent {
         }));
       }
     );
+    this.loader = false;
   }
 
   public formatDate(date: any): string {
@@ -75,10 +79,7 @@ export class PackageInformationComponent {
   }
 
   private info(name: any): Observable<any> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-    });
-
+    const headers = this.shared.header();
     return this.http
       .post<any>(
         'https://townhall-ten.vercel.app/info',
