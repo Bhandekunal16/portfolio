@@ -115,7 +115,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
     {
       id: 'linkedin',
       title: 'Open LinkedIn Profile',
-      subtitle: 'linkedin.com/in/kunal-bhande',
+      subtitle: 'linkedin.com/in/kunal-bhande-2a0582271',
       icon: <ExternalLink className="w-4 h-4 text-slate-400" />,
       action: () => {
         window.open(PERSONAL_INFO.linkedinUrl, '_blank', 'noopener,noreferrer');

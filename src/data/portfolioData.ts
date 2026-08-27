@@ -10,7 +10,7 @@ export const PERSONAL_INFO = {
   location: 'Mumbai / Thane, India',
   status: 'Open to High-Impact Engineering Roles',
   githubUrl: 'https://github.com/Bhandekunal16',
-  linkedinUrl: 'https://www.linkedin.com/in/kunal-bhande/',
+  linkedinUrl: 'https://www.linkedin.com/in/kunal-bhande-2a0582271/',
   heroStack: [
     'Angular',
     'React',

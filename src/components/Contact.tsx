@@ -167,7 +167,7 @@ export const Contact: React.FC<ContactProps> = ({ onCopyEmail, copiedEmail }) =>
                 <div>
                   <span className="text-xs font-mono text-slate-500 block">LinkedIn</span>
                   <span className="text-sm font-bold text-white group-hover:text-cyan-300 transition-colors">
-                    kunal-bhande
+                    kunal-bhande-2a0582271
                   </span>
                 </div>
               </a>
