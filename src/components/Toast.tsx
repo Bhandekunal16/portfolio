@@ -24,7 +24,7 @@ export const Toast: React.FC<ToastProps> = ({ toasts, onDismiss }) => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="pointer-events-auto flex items-center justify-between gap-3 p-3.5 rounded-xl border border-slate-700/80 bg-slate-900/95 backdrop-blur-md shadow-xl text-sm"
+            className="pointer-events-auto flex items-center justify-between gap-3 p-3.5 rounded-xl border border-white/[0.12] bg-[#0d0f15]/95 backdrop-blur-md shadow-2xl text-xs font-mono"
           >
             <div className="flex items-center gap-2.5">
               {t.type === 'error' ? (
@@ -38,7 +38,7 @@ export const Toast: React.FC<ToastProps> = ({ toasts, onDismiss }) => {
             </div>
             <button
               onClick={() => onDismiss(t.id)}
-              className="text-slate-400 hover:text-slate-200 p-1 rounded-md transition-colors"
+              className="text-slate-400 hover:text-white p-1 rounded-md transition-colors"
               aria-label="Dismiss notification"
             >
               <X className="w-3.5 h-3.5" />

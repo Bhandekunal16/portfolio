@@ -7,11 +7,8 @@ import {
   Linkedin,
   Terminal,
   ShieldCheck,
-  Code2,
-  Database,
-  Cloud,
   ChevronDown,
-  Sparkles
+  ArrowUpRight
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { TerminalSnapshot } from './TerminalSnapshot';
@@ -25,125 +22,126 @@ export const Hero: React.FC<HeroProps> = ({ onExploreProjects, onContactClick })
   return (
     <section
       id="home"
-      className="relative min-h-[90vh] pt-32 pb-20 flex flex-col justify-center overflow-hidden bg-grid-pattern"
+      className="relative min-h-[92vh] pt-32 pb-20 flex flex-col justify-center overflow-hidden bg-grid-pattern"
     >
-      {/* Subtle background ambient gradients */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gradient-to-tr from-cyan-600/10 via-blue-600/10 to-indigo-600/10 blur-[120px] rounded-full pointer-events-none -z-10" />
-      <div className="absolute top-1/3 right-10 w-[300px] h-[300px] bg-emerald-500/5 blur-[100px] rounded-full pointer-events-none -z-10" />
+      {/* Subtle radial background depth */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[380px] bg-cyan-500/[0.04] blur-[140px] rounded-full pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
           
-          {/* Left Column: Hero Copy, Positioning & CTAs */}
+          {/* Left Column: Hero Editorial Typography, Positioning & CTAs */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
+            transition={{ duration: 0.4, ease: 'easeOut' }}
             className="lg:col-span-7 flex flex-col items-start"
           >
-            {/* Status Pill */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 text-xs font-mono text-slate-300 mb-6 shadow-sm">
+            {/* Status & Availability Pill */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] text-xs font-mono text-slate-300 mb-6">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-slate-400">Engineering Focus:</span>
-              <span className="text-cyan-300 font-semibold">Scalable Web Systems & Frontend Architecture</span>
+              <span className="text-slate-400">Status:</span>
+              <span className="text-slate-200 font-medium">Available for Engineering Roles</span>
             </div>
 
             {/* Name */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-3">
-              {PERSONAL_INFO.name}
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-3">
+              Kunal Bhande
             </h1>
 
             {/* Title / Role */}
-            <div className="flex items-center gap-3 mb-6">
-              <h2 className="text-xl sm:text-2xl font-semibold bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-300 bg-clip-text text-transparent">
-                Software Developer · Full-Stack Engineer
-              </h2>
-            </div>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-medium text-slate-300 tracking-tight mb-5">
+              Software Developer · Full-Stack Engineer
+            </h2>
 
             {/* Positioning Statement */}
             <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed mb-8 font-normal">
-              {PERSONAL_INFO.bioStatement}
+              Building scalable web applications, developer tools, and reliable software systems across frontend, backend, and cloud.
             </p>
 
             {/* Primary Action CTAs */}
-            <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8 sm:mb-10 w-full sm:w-auto">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-3.5 mb-8 w-full sm:w-auto">
               <button
                 onClick={onExploreProjects}
-                className="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-6 py-3.5 sm:py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30 transition-all hover:scale-[1.02] active:scale-[0.98] min-h-[44px]"
+                className="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white hover:bg-slate-100 text-[#08090d] font-bold text-sm transition-all hover:scale-[1.01] active:scale-[0.98] min-h-[44px]"
               >
-                <span>View Projects</span>
-                <ArrowRight className="w-4 h-4 shrink-0" />
+                <span>View Work</span>
+                <ArrowRight className="w-4 h-4" />
               </button>
 
               <button
                 onClick={onContactClick}
-                className="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-6 py-3.5 sm:py-3 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-slate-600 text-slate-200 font-semibold text-sm transition-all hover:scale-[1.02] active:scale-[0.98] min-h-[44px]"
+                className="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-white font-medium text-sm transition-all min-h-[44px]"
               >
-                <Mail className="w-4 h-4 text-cyan-400 shrink-0" />
-                <span>Get In Touch</span>
+                <Mail className="w-4 h-4 text-cyan-400" />
+                <span>Contact</span>
               </button>
 
-              {/* Social Link Badges */}
-              <div className="flex items-center gap-2 pl-1 sm:pl-2 sm:border-l sm:border-slate-800 w-full sm:w-auto justify-start mt-2 sm:mt-0">
+              {/* GitHub & LinkedIn CTAs */}
+              <div className="flex items-center gap-2 w-full sm:w-auto">
                 <a
                   href={PERSONAL_INFO.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 sm:p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 hover:text-cyan-300 text-slate-300 transition-all hover:scale-105 min-w-[44px] min-h-[44px] flex items-center justify-center"
+                  className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.08] text-slate-300 hover:text-white text-xs font-mono transition-colors min-h-[44px]"
                   aria-label="GitHub Profile"
                 >
-                  <Github className="w-4 h-4" />
+                  <Github className="w-3.5 h-3.5" />
+                  <span>GitHub</span>
+                  <ArrowUpRight className="w-3 h-3 text-slate-500" />
                 </a>
+
                 <a
                   href={PERSONAL_INFO.linkedinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 sm:p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 hover:text-cyan-300 text-slate-300 transition-all hover:scale-105 min-w-[44px] min-h-[44px] flex items-center justify-center"
+                  className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.08] text-slate-300 hover:text-white text-xs font-mono transition-colors min-h-[44px]"
                   aria-label="LinkedIn Profile"
                 >
-                  <Linkedin className="w-4 h-4" />
+                  <Linkedin className="w-3.5 h-3.5" />
+                  <span>LinkedIn</span>
+                  <ArrowUpRight className="w-3 h-3 text-slate-500" />
                 </a>
               </div>
             </div>
 
-            {/* Visual Technology Stack Strip */}
-            <div className="w-full pt-6 border-t border-slate-800/80">
-              <span className="text-xs font-mono uppercase tracking-wider text-slate-500 block mb-3 font-semibold">
-                Core Engineering Stack
+            {/* Visual Engineering Stack Metadata Strip */}
+            <div className="w-full pt-6 border-t border-white/[0.08]">
+              <span className="text-[11px] font-mono uppercase tracking-wider text-slate-500 block mb-2.5 font-semibold">
+                Core Stack
               </span>
-              <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
+              <div className="flex flex-wrap items-center gap-1.5">
                 {PERSONAL_INFO.heroStack.map((tech) => (
-                  <div
+                  <span
                     key={tech}
-                    className="inline-flex items-center px-3 py-1.5 rounded-lg bg-slate-900/80 border border-slate-800 text-xs font-mono font-medium text-slate-300 hover:text-cyan-300 hover:border-slate-700 transition-colors shadow-sm"
+                    className="inline-flex items-center px-2.5 py-1 rounded bg-white/[0.03] border border-white/[0.07] text-xs font-mono text-slate-300"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400/80 mr-2" />
                     {tech}
-                  </div>
+                  </span>
                 ))}
               </div>
             </div>
           </motion.div>
 
-          {/* Right Column: Interactive Terminal & Systems Snapshot */}
+          {/* Right Column: Engineering Architecture & Telemetry Visual */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.15, ease: 'easeOut' }}
+            transition={{ duration: 0.4, delay: 0.1, ease: 'easeOut' }}
             className="lg:col-span-5 w-full"
           >
             <TerminalSnapshot />
           </motion.div>
         </div>
 
-        {/* Scroll indicator */}
+        {/* Scroll Indicator */}
         <div className="mt-16 flex justify-center">
           <a
-            href="#about"
-            className="flex flex-col items-center gap-1.5 text-xs font-mono text-slate-500 hover:text-slate-300 transition-colors"
+            href="#projects"
+            className="flex flex-col items-center gap-1 text-xs font-mono text-slate-500 hover:text-slate-300 transition-colors"
           >
-            <span>EXPLORE ARCHITECTURE</span>
-            <ChevronDown className="w-4 h-4 animate-bounce text-cyan-400" />
+            <span>DISCOVER WORK</span>
+            <ChevronDown className="w-3.5 h-3.5 text-cyan-400 animate-bounce" />
           </a>
         </div>
       </div>

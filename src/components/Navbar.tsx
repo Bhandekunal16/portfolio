@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Terminal, Copy, Check, ExternalLink, Sparkles, Github, Linkedin } from 'lucide-react';
+import { Menu, X, Terminal, Copy, Check, ExternalLink, Github, Linkedin, ArrowUpRight } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 interface NavbarProps {
@@ -23,17 +23,15 @@ export const Navbar: React.FC<NavbarProps> = ({
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#home', id: 'home' },
-    { name: 'About', href: '#about', id: 'about' },
+    { name: 'Work', href: '#projects', id: 'projects' },
     { name: 'Experience', href: '#experience', id: 'experience' },
-    { name: 'Projects', href: '#projects', id: 'projects' },
     { name: 'Open Source', href: '#open-source', id: 'open-source' },
-    { name: 'Skills', href: '#skills', id: 'skills' },
+    { name: 'About', href: '#about', id: 'about' },
     { name: 'Contact', href: '#contact', id: 'contact' },
   ];
 
@@ -49,40 +47,35 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-200 ${
           scrolled
-            ? 'bg-[#090d16]/85 backdrop-blur-md border-b border-slate-800/80 py-3 shadow-lg shadow-black/20'
-            : 'bg-transparent py-5'
+            ? 'bg-[#08090d]/90 backdrop-blur-xl border-b border-white/[0.08] py-3.5 shadow-xl shadow-black/40'
+            : 'bg-transparent py-5 border-b border-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Logo & Identity */}
+          {/* Left: Brand / Name */}
           <a
             href="#home"
             onClick={(e) => handleNavClick(e, '#home')}
-            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-lg"
+            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500/20 via-blue-500/20 to-indigo-500/20 border border-cyan-500/30 flex items-center justify-center font-mono font-bold text-cyan-300 text-base shadow-sm group-hover:border-cyan-400 group-hover:shadow-[0_0_15px_rgba(34,211,238,0.2)] transition-all">
+            <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center font-mono font-semibold text-white text-xs tracking-wider group-hover:border-white/25 transition-colors">
               KB
             </div>
-            <div className="flex flex-col">
-              <div className="flex items-center gap-2">
-                <span className="font-bold text-slate-100 text-base tracking-tight group-hover:text-cyan-300 transition-colors">
-                  Kunal Bhande
-                </span>
-                <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-mono font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse mr-1" />
-                  Available
-                </span>
-              </div>
-              <span className="text-xs text-slate-400 hidden sm:block font-medium">
-                Software Developer · Full-Stack Engineer
+            <div className="flex items-center gap-2.5">
+              <span className="font-bold text-white text-sm tracking-widest uppercase transition-colors group-hover:text-cyan-300">
+                KUNAL BHANDE
+              </span>
+              <span className="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span>Available</span>
               </span>
             </div>
           </a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1 bg-slate-900/60 border border-slate-800/90 rounded-full px-3 py-1.5 backdrop-blur-md shadow-inner">
+          {/* Center / Right: Editorial Navigation Links */}
+          <nav className="hidden md:flex items-center gap-1 bg-white/[0.03] border border-white/[0.08] rounded-full px-4 py-1.5 backdrop-blur-md">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
               return (
@@ -90,17 +83,17 @@ export const Navbar: React.FC<NavbarProps> = ({
                   key={link.id}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className={`relative px-3.5 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
+                  className={`relative px-3.5 py-1 text-xs font-medium rounded-full transition-all duration-150 ${
                     isActive
-                      ? 'text-cyan-300 font-semibold'
-                      : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
+                      ? 'text-white font-semibold'
+                      : 'text-slate-400 hover:text-slate-100 hover:bg-white/[0.04]'
                   }`}
                 >
                   {isActive && (
                     <motion.div
-                      layoutId="activeNavPill"
-                      className="absolute inset-0 bg-cyan-500/15 border border-cyan-500/30 rounded-full -z-10 shadow-sm"
-                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      layoutId="activeNavIndicator"
+                      className="absolute inset-0 bg-white/10 border border-white/15 rounded-full -z-10"
+                      transition={{ type: 'spring', stiffness: 450, damping: 35 }}
                     />
                   )}
                   {link.name}
@@ -109,90 +102,92 @@ export const Navbar: React.FC<NavbarProps> = ({
             })}
           </nav>
 
-          {/* Action Buttons */}
+          {/* Right Action Icons & Command Palette */}
           <div className="hidden sm:flex items-center gap-2">
-            {/* Social Links */}
+            {/* Subtle GitHub Link */}
             <a
               href={PERSONAL_INFO.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg bg-slate-900/80 border border-slate-800 hover:border-cyan-500/50 hover:text-cyan-300 text-slate-300 transition-all hover:bg-slate-800/60"
-              aria-label="GitHub Profile"
+              className="p-2 rounded-lg bg-white/[0.03] border border-white/[0.08] hover:border-white/20 hover:text-white text-slate-400 transition-colors"
+              aria-label="GitHub"
               title="GitHub Profile"
             >
-              <Github className="w-4 h-4" />
+              <Github className="w-3.5 h-3.5" />
             </a>
+
+            {/* Subtle LinkedIn Link */}
             <a
               href={PERSONAL_INFO.linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg bg-slate-900/80 border border-slate-800 hover:border-cyan-500/50 hover:text-cyan-300 text-slate-300 transition-all hover:bg-slate-800/60"
-              aria-label="LinkedIn Profile"
+              className="p-2 rounded-lg bg-white/[0.03] border border-white/[0.08] hover:border-white/20 hover:text-white text-slate-400 transition-colors"
+              aria-label="LinkedIn"
               title="LinkedIn Profile"
             >
-              <Linkedin className="w-4 h-4" />
+              <Linkedin className="w-3.5 h-3.5" />
             </a>
 
-            {/* Quick Terminal / Command Palette Trigger */}
+            {/* ⌘K Trigger */}
             <button
               onClick={onOpenCommandPalette}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900/80 border border-slate-800 hover:border-slate-700 text-slate-400 hover:text-slate-200 text-xs font-mono transition-all hover:bg-slate-800/60 ml-1"
-              title="Open Command Palette (⌘K)"
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-white/[0.03] border border-white/[0.08] hover:border-white/20 text-slate-400 hover:text-white text-[11px] font-mono transition-colors ml-1"
+              title="Search & Quick Actions (⌘K)"
             >
-              <Terminal className="w-3.5 h-3.5 text-cyan-400" />
+              <Terminal className="w-3 h-3 text-cyan-400" />
               <span>⌘K</span>
             </button>
 
-            {/* Quick Copy Email CTA */}
+            {/* Quick Email Trigger */}
             <button
               onClick={onCopyEmail}
-              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 text-xs font-medium transition-all hover:shadow-[0_0_15px_rgba(6,182,212,0.15)]"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 text-xs font-mono font-medium transition-all"
             >
               {copiedEmail ? (
                 <>
-                  <Check className="w-3.5 h-3.5 text-emerald-400" />
-                  <span className="text-emerald-300 font-mono">Copied!</span>
+                  <Check className="w-3 h-3 text-emerald-400" />
+                  <span className="text-emerald-300">Copied</span>
                 </>
               ) : (
                 <>
-                  <Copy className="w-3.5 h-3.5" />
-                  <span>Copy Email</span>
+                  <Copy className="w-3 h-3" />
+                  <span>Email</span>
                 </>
               )}
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex sm:hidden items-center gap-2">
+          {/* Mobile Menu & ⌘K button */}
+          <div className="flex md:hidden items-center gap-2">
             <button
               onClick={onOpenCommandPalette}
-              className="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white"
-              aria-label="Open Command Palette"
+              className="p-2 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white"
+              aria-label="Command Palette"
             >
-              <Terminal className="w-4 h-4 text-cyan-400" />
+              <Terminal className="w-3.5 h-3.5 text-cyan-400" />
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
-              aria-label="Toggle navigation menu"
+              className="p-2 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white"
+              aria-label="Toggle Navigation"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5 text-cyan-400" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? <X className="w-4 h-4 text-cyan-400" /> : <Menu className="w-4 h-4" />}
             </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile Animated Drawer Menu */}
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -15 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-[65px] z-30 bg-[#090d16]/95 backdrop-blur-xl border-b border-slate-800 p-6 lg:hidden shadow-2xl"
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.15 }}
+            className="fixed inset-x-0 top-[60px] z-30 bg-[#08090d]/98 backdrop-blur-2xl border-b border-white/10 p-6 md:hidden shadow-2xl"
           >
-            <nav className="flex flex-col gap-2">
+            <nav className="flex flex-col gap-1.5">
               {navLinks.map((link) => (
                 <a
                   key={link.id}
@@ -200,42 +195,44 @@ export const Navbar: React.FC<NavbarProps> = ({
                   onClick={(e) => handleNavClick(e, link.href)}
                   className={`px-4 py-3 rounded-xl text-sm font-medium transition-all ${
                     activeSection === link.id
-                      ? 'bg-cyan-500/15 text-cyan-300 border border-cyan-500/30'
-                      : 'text-slate-300 hover:bg-slate-800/60 hover:text-white'
+                      ? 'bg-white/10 text-white font-semibold border border-white/15'
+                      : 'text-slate-300 hover:bg-white/5 hover:text-white'
                   }`}
                 >
                   {link.name}
                 </a>
               ))}
-              <div className="pt-4 border-t border-slate-800/80 mt-2 flex flex-col gap-3">
+
+              <div className="pt-4 border-t border-white/10 mt-3 flex flex-col gap-3">
                 <button
                   onClick={() => {
                     onCopyEmail();
                     setMobileMenuOpen(false);
                   }}
-                  className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-sm font-medium min-h-[44px]"
+                  className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-mono font-medium min-h-[44px]"
                 >
                   {copiedEmail ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
-                  {copiedEmail ? 'Email Copied!' : 'bhandekunal16@gmail.com'}
+                  {copiedEmail ? 'Email Copied to Clipboard!' : 'Copy bhandekunal16@gmail.com'}
                 </button>
+
                 <div className="flex items-center justify-between text-xs text-slate-400 px-2 font-mono pt-1">
-                  <span>Phone: +91 {PERSONAL_INFO.phone}</span>
-                  <div className="flex items-center gap-3">
+                  <span>+91 {PERSONAL_INFO.phone}</span>
+                  <div className="flex items-center gap-4">
                     <a
                       href={PERSONAL_INFO.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-cyan-400 flex items-center gap-1 hover:underline p-1"
+                      className="text-cyan-400 hover:underline flex items-center gap-1"
                     >
-                      GitHub <ExternalLink className="w-3 h-3" />
+                      GitHub <ArrowUpRight className="w-3 h-3" />
                     </a>
                     <a
                       href={PERSONAL_INFO.linkedinUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-cyan-400 flex items-center gap-1 hover:underline p-1"
+                      className="text-cyan-400 hover:underline flex items-center gap-1"
                     >
-                      LinkedIn <ExternalLink className="w-3 h-3" />
+                      LinkedIn <ArrowUpRight className="w-3 h-3" />
                     </a>
                   </div>
                 </div>

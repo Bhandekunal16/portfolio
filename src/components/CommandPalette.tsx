@@ -12,8 +12,7 @@ import {
   Mail,
   X,
   Phone,
-  GraduationCap,
-  Sparkles
+  ArrowRight
 } from 'lucide-react';
 import { PERSONAL_INFO, PROJECTS_DATA, OPEN_SOURCE_PACKAGES } from '../data/portfolioData';
 
@@ -37,8 +36,6 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
         e.preventDefault();
         if (isOpen) {
           onClose();
-        } else {
-          // Open
         }
       }
       if (e.key === 'Escape' && isOpen) {
@@ -63,18 +60,8 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       }
     },
     {
-      id: 'nav-exp',
-      title: 'View Work Experience & Banking Portals',
-      subtitle: 'Frontend Lead @ NPST · SBM & Cosmos Bank Portals',
-      icon: <Briefcase className="w-4 h-4 text-emerald-400" />,
-      action: () => {
-        document.querySelector('#experience')?.scrollIntoView({ behavior: 'smooth' });
-        onClose();
-      }
-    },
-    {
       id: 'nav-projects',
-      title: 'Explore Live Web Applications',
+      title: 'View Work & Featured Projects',
       subtitle: 'NPM Analytics, FluxTube, CDNByte, Word Encoder',
       icon: <Layers className="w-4 h-4 text-indigo-400" />,
       action: () => {
@@ -83,8 +70,18 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       }
     },
     {
+      id: 'nav-exp',
+      title: 'Career & Banking Systems Experience',
+      subtitle: 'Frontend Lead @ NPST · SBM & Cosmos Bank Portals',
+      icon: <Briefcase className="w-4 h-4 text-emerald-400" />,
+      action: () => {
+        document.querySelector('#experience')?.scrollIntoView({ behavior: 'smooth' });
+        onClose();
+      }
+    },
+    {
       id: 'nav-oss',
-      title: 'Test Open Source NPM Packages',
+      title: 'Published NPM Packages & Sandbox',
       subtitle: 'robotic-creater, word-encoder, roboticdb',
       icon: <Package className="w-4 h-4 text-amber-400" />,
       action: () => {
@@ -94,7 +91,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
     },
     {
       id: 'nav-skills',
-      title: 'Inspect Technology Ecosystem',
+      title: 'Engineering Stack Matrix',
       subtitle: 'Angular, React, Node.js, NestJS, AWS, ClickHouse',
       icon: <Cpu className="w-4 h-4 text-sky-400" />,
       action: () => {
@@ -130,15 +127,15 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
   );
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-black/80 backdrop-blur-md">
+    <div className="fixed inset-0 z-50 flex items-start justify-center pt-24 px-4 bg-black/80 backdrop-blur-md">
       <motion.div
-        initial={{ opacity: 0, y: -20, scale: 0.98 }}
+        initial={{ opacity: 0, y: -15, scale: 0.98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
-        exit={{ opacity: 0, y: -20, scale: 0.98 }}
-        className="w-full max-w-xl bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl overflow-hidden"
+        exit={{ opacity: 0, y: -15, scale: 0.98 }}
+        className="w-full max-w-xl bg-[#0d0f15] border border-white/[0.12] rounded-2xl shadow-2xl overflow-hidden"
       >
         {/* Search header */}
-        <div className="flex items-center px-4 py-3.5 border-b border-slate-800 bg-slate-950">
+        <div className="flex items-center px-4 py-3.5 border-b border-white/[0.08] bg-[#090b10]">
           <Search className="w-4 h-4 text-slate-500 mr-3 shrink-0" />
           <input
             type="text"
@@ -146,7 +143,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Type a command or jump to section..."
-            className="w-full bg-transparent border-none text-white text-sm font-mono focus:outline-none placeholder:text-slate-600"
+            className="w-full bg-transparent border-none text-white text-xs font-mono focus:outline-none placeholder:text-slate-600"
           />
           <button
             onClick={onClose}
@@ -157,7 +154,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
         </div>
 
         {/* Results list */}
-        <div className="p-2 max-h-80 overflow-y-auto divide-y divide-slate-800/40">
+        <div className="p-2 max-h-80 overflow-y-auto divide-y divide-white/[0.04]">
           {filtered.length === 0 ? (
             <div className="p-6 text-center text-xs font-mono text-slate-500">
               No matching commands or destinations found.
@@ -167,23 +164,23 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
               <button
                 key={item.id}
                 onClick={item.action}
-                className="w-full flex items-center justify-between p-3 rounded-xl hover:bg-slate-800/80 transition-colors text-left group"
+                className="w-full flex items-center justify-between p-3 rounded-xl hover:bg-white/[0.04] transition-colors text-left group"
               >
                 <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-slate-950 border border-slate-800 group-hover:border-cyan-500/30">
+                  <div className="p-2 rounded-lg bg-white/[0.03] border border-white/[0.08] group-hover:border-white/20">
                     {item.icon}
                   </div>
                   <div>
-                    <span className="text-sm font-semibold text-slate-200 group-hover:text-cyan-300 block">
+                    <span className="text-xs font-bold text-slate-200 group-hover:text-white block font-mono">
                       {item.title}
                     </span>
-                    <span className="text-xs text-slate-400 font-mono">
+                    <span className="text-[11px] text-slate-500 font-mono">
                       {item.subtitle}
                     </span>
                   </div>
                 </div>
                 <span className="text-[10px] font-mono text-slate-600 group-hover:text-slate-400">
-                  Select ↵
+                  ↵
                 </span>
               </button>
             ))
@@ -191,9 +188,9 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
         </div>
 
         {/* Palette footer */}
-        <div className="px-4 py-2.5 bg-slate-950 border-t border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-500">
-          <span>Navigate with ↵ or Click</span>
-          <span>Esc to Close</span>
+        <div className="px-4 py-2.5 bg-[#090b10] border-t border-white/[0.08] flex items-center justify-between text-[11px] font-mono text-slate-500">
+          <span>Navigate with ↵ or click</span>
+          <span>ESC to close</span>
         </div>
       </motion.div>
     </div>

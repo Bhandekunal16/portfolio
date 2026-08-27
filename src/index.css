@@ -2,15 +2,16 @@
 
 @layer base {
   :root {
-    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-sans: 'Geist', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
   }
 
   body {
     font-family: var(--font-sans);
-    background-color: #090d16;
+    background-color: #08090d;
     color: #e2e8f0;
     overflow-x: hidden;
+    letter-spacing: -0.01em;
   }
 
   code, pre, .font-mono {
@@ -18,43 +19,52 @@
   }
 }
 
-/* Custom subtle scrollbar */
+/* Custom subtle dark scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #090d16;
+  background: #08090d;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border-radius: 4px;
+  background: #1e222d;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #2e3444;
 }
 
-/* Engineering subtle grid background */
+/* Precision grid background */
 .bg-grid-pattern {
-  background-size: 36px 36px;
+  background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
 }
 
 .bg-dot-pattern {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
-  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Technical Hairline Borders */
+.border-subtle {
+  border-color: rgba(255, 255, 255, 0.07);
+}
+
+.border-subtle-hover:hover {
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 /* Glow effects */
 .glow-accent {
-  box-shadow: 0 0 50px -10px rgba(56, 189, 248, 0.15);
+  box-shadow: 0 0 60px -15px rgba(56, 189, 248, 0.12);
 }
 
-.glow-emerald {
-  box-shadow: 0 0 50px -10px rgba(52, 211, 153, 0.15);
+.glow-subtle {
+  box-shadow: 0 0 30px -10px rgba(255, 255, 255, 0.05);
 }

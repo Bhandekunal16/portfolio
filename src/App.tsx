@@ -17,6 +17,7 @@ export default function App() {
   const [activeSection, setActiveSection] = useState<string>('home');
   const [commandPaletteOpen, setCommandPaletteOpen] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedCommand, setCopiedCommand] = useState<string | null>(null);
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
 
   const addToast = (message: string, type: 'success' | 'error' | 'info' = 'success') => {
@@ -43,9 +44,16 @@ export default function App() {
     addToast(`Copied ${label} to clipboard!`, 'info');
   };
 
+  const handleCopyCommand = (cmd: string, name: string) => {
+    navigator.clipboard.writeText(cmd);
+    setCopiedCommand(cmd);
+    addToast(`Copied install command for ${name}: ${cmd}`, 'success');
+    setTimeout(() => setCopiedCommand(null), 2500);
+  };
+
   // Section observer to update active nav link
   useEffect(() => {
-    const sections = ['home', 'about', 'experience', 'projects', 'open-source', 'skills', 'contact'];
+    const sections = ['home', 'projects', 'experience', 'open-source', 'skills', 'about', 'contact'];
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 200;
       for (const sectionId of sections) {
@@ -74,7 +82,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#090d16] text-[#e2e8f0] relative selection:bg-cyan-500/25 selection:text-cyan-200">
+    <div className="min-h-screen bg-[#08090d] text-[#e2e8f0] relative selection:bg-cyan-500/20 selection:text-cyan-200">
       {/* Navigation */}
       <Navbar
         activeSection={activeSection}
@@ -89,11 +97,14 @@ export default function App() {
           onExploreProjects={scrollToProjects}
           onContactClick={scrollToContact}
         />
-        <About />
-        <Experience />
         <Projects onCopyUrl={(url, title) => handleCopyText(url, `${title} URL`)} />
-        <OpenSource onCopyText={handleCopyText} />
+        <Experience />
+        <OpenSource
+          onCopyCommand={handleCopyCommand}
+          copiedCommand={copiedCommand}
+        />
         <Skills />
+        <About />
         <Education />
         <Contact
           onCopyEmail={handleCopyEmail}
@@ -119,4 +130,3 @@ export default function App() {
     </div>
   );
 }
-
