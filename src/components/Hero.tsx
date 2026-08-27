@@ -66,30 +66,30 @@ export const Hero: React.FC<HeroProps> = ({ onExploreProjects, onContactClick })
             </p>
 
             {/* Primary Action CTAs */}
-            <div className="flex flex-wrap items-center gap-4 mb-10">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8 sm:mb-10 w-full sm:w-auto">
               <button
                 onClick={onExploreProjects}
-                className="flex items-center gap-2 px-6 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                className="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-6 py-3.5 sm:py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30 transition-all hover:scale-[1.02] active:scale-[0.98] min-h-[44px]"
               >
                 <span>View Projects</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 shrink-0" />
               </button>
 
               <button
                 onClick={onContactClick}
-                className="flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-slate-600 text-slate-200 font-semibold text-sm transition-all hover:scale-[1.02] active:scale-[0.98]"
+                className="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-6 py-3.5 sm:py-3 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-slate-600 text-slate-200 font-semibold text-sm transition-all hover:scale-[1.02] active:scale-[0.98] min-h-[44px]"
               >
-                <Mail className="w-4 h-4 text-cyan-400" />
+                <Mail className="w-4 h-4 text-cyan-400 shrink-0" />
                 <span>Get In Touch</span>
               </button>
 
               {/* Social Link Badges */}
-              <div className="flex items-center gap-2 pl-2 sm:border-l sm:border-slate-800">
+              <div className="flex items-center gap-2 pl-1 sm:pl-2 sm:border-l sm:border-slate-800 w-full sm:w-auto justify-start mt-2 sm:mt-0">
                 <a
                   href={PERSONAL_INFO.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 hover:text-cyan-300 text-slate-300 transition-all hover:scale-105"
+                  className="p-3 sm:p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 hover:text-cyan-300 text-slate-300 transition-all hover:scale-105 min-w-[44px] min-h-[44px] flex items-center justify-center"
                   aria-label="GitHub Profile"
                 >
                   <Github className="w-4 h-4" />
@@ -98,7 +98,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreProjects, onContactClick })
                   href={PERSONAL_INFO.linkedinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 hover:text-cyan-300 text-slate-300 transition-all hover:scale-105"
+                  className="p-3 sm:p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 hover:text-cyan-300 text-slate-300 transition-all hover:scale-105 min-w-[44px] min-h-[44px] flex items-center justify-center"
                   aria-label="LinkedIn Profile"
                 >
                   <Linkedin className="w-4 h-4" />

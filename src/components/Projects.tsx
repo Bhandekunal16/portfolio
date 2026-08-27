@@ -183,9 +183,9 @@ export const Projects: React.FC<ProjectsProps> = ({ onCopyUrl }) => {
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                className={`px-3.5 py-2 sm:py-1.5 rounded-lg text-xs font-mono transition-all min-h-[38px] sm:min-h-[32px] flex items-center ${
                   selectedCategory === cat
-                    ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 font-semibold'
+                    ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 font-bold'
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
@@ -271,7 +271,7 @@ export const Projects: React.FC<ProjectsProps> = ({ onCopyUrl }) => {
               <div className="px-6 py-4 bg-slate-950/80 border-t border-slate-800/80 flex items-center justify-between gap-3">
                 <button
                   onClick={() => setActiveModalProject(project)}
-                  className="text-xs font-mono text-slate-400 hover:text-cyan-300 flex items-center gap-1.5 transition-colors"
+                  className="text-xs font-mono text-slate-400 hover:text-cyan-300 flex items-center gap-1.5 transition-colors min-h-[36px]"
                 >
                   <Maximize2 className="w-3.5 h-3.5" />
                   <span>Inspect Architecture</span>
@@ -280,8 +280,8 @@ export const Projects: React.FC<ProjectsProps> = ({ onCopyUrl }) => {
                 <a
                   href={project.liveUrl}
                   target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs shadow-md shadow-cyan-500/20 transition-all hover:scale-105"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 sm:py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs shadow-md shadow-cyan-500/20 transition-all hover:scale-105 min-h-[36px]"
                 >
                   <span>Launch Live Demo</span>
                   <ExternalLink className="w-3.5 h-3.5" />

@@ -213,21 +213,31 @@ export const Navbar: React.FC<NavbarProps> = ({
                     onCopyEmail();
                     setMobileMenuOpen(false);
                   }}
-                  className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-sm font-medium"
+                  className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-sm font-medium min-h-[44px]"
                 >
                   {copiedEmail ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
                   {copiedEmail ? 'Email Copied!' : 'bhandekunal16@gmail.com'}
                 </button>
-                <div className="flex items-center justify-between text-xs text-slate-400 px-2 font-mono">
+                <div className="flex items-center justify-between text-xs text-slate-400 px-2 font-mono pt-1">
                   <span>Phone: +91 {PERSONAL_INFO.phone}</span>
-                  <a
-                    href={PERSONAL_INFO.githubUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-cyan-400 flex items-center gap-1 hover:underline"
-                  >
-                    GitHub <ExternalLink className="w-3 h-3" />
-                  </a>
+                  <div className="flex items-center gap-3">
+                    <a
+                      href={PERSONAL_INFO.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-cyan-400 flex items-center gap-1 hover:underline p-1"
+                    >
+                      GitHub <ExternalLink className="w-3 h-3" />
+                    </a>
+                    <a
+                      href={PERSONAL_INFO.linkedinUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-cyan-400 flex items-center gap-1 hover:underline p-1"
+                    >
+                      LinkedIn <ExternalLink className="w-3 h-3" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </nav>
