@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Terminal, Copy, Check, ExternalLink, Sparkles } from 'lucide-react';
+import { Menu, X, Terminal, Copy, Check, ExternalLink, Sparkles, Github, Linkedin } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 interface NavbarProps {
@@ -110,11 +110,33 @@ export const Navbar: React.FC<NavbarProps> = ({
           </nav>
 
           {/* Action Buttons */}
-          <div className="hidden sm:flex items-center gap-2.5">
+          <div className="hidden sm:flex items-center gap-2">
+            {/* Social Links */}
+            <a
+              href={PERSONAL_INFO.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg bg-slate-900/80 border border-slate-800 hover:border-cyan-500/50 hover:text-cyan-300 text-slate-300 transition-all hover:bg-slate-800/60"
+              aria-label="GitHub Profile"
+              title="GitHub Profile"
+            >
+              <Github className="w-4 h-4" />
+            </a>
+            <a
+              href={PERSONAL_INFO.linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg bg-slate-900/80 border border-slate-800 hover:border-cyan-500/50 hover:text-cyan-300 text-slate-300 transition-all hover:bg-slate-800/60"
+              aria-label="LinkedIn Profile"
+              title="LinkedIn Profile"
+            >
+              <Linkedin className="w-4 h-4" />
+            </a>
+
             {/* Quick Terminal / Command Palette Trigger */}
             <button
               onClick={onOpenCommandPalette}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900/80 border border-slate-800 hover:border-slate-700 text-slate-400 hover:text-slate-200 text-xs font-mono transition-all hover:bg-slate-800/60"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900/80 border border-slate-800 hover:border-slate-700 text-slate-400 hover:text-slate-200 text-xs font-mono transition-all hover:bg-slate-800/60 ml-1"
               title="Open Command Palette (⌘K)"
             >
               <Terminal className="w-3.5 h-3.5 text-cyan-400" />

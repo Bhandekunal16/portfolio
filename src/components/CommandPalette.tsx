@@ -108,7 +108,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       subtitle: 'github.com/Bhandekunal16',
       icon: <ExternalLink className="w-4 h-4 text-slate-400" />,
       action: () => {
-        window.open(PERSONAL_INFO.githubUrl, '_blank');
+        window.open(PERSONAL_INFO.githubUrl, '_blank', 'noopener,noreferrer');
         onClose();
       }
     },
@@ -118,7 +118,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       subtitle: 'linkedin.com/in/kunal-bhande',
       icon: <ExternalLink className="w-4 h-4 text-slate-400" />,
       action: () => {
-        window.open(PERSONAL_INFO.linkedinUrl, '_blank');
+        window.open(PERSONAL_INFO.linkedinUrl, '_blank', 'noopener,noreferrer');
         onClose();
       }
     }

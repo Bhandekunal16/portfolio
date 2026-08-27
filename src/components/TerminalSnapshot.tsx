@@ -122,8 +122,8 @@ export const TerminalSnapshot: React.FC = () => {
           <div className="text-xs space-y-1 font-mono text-slate-300">
             <p>Email: <span className="text-cyan-400">{PERSONAL_INFO.email}</span></p>
             <p>Phone: <span className="text-emerald-400">+91 {PERSONAL_INFO.phone}</span></p>
-            <p>GitHub: <a href={PERSONAL_INFO.githubUrl} target="_blank" rel="noreferrer" className="text-blue-400 underline">{PERSONAL_INFO.githubUrl}</a></p>
-            <p>LinkedIn: <a href={PERSONAL_INFO.linkedinUrl} target="_blank" rel="noreferrer" className="text-blue-400 underline">{PERSONAL_INFO.linkedinUrl}</a></p>
+            <p>GitHub: <a href={PERSONAL_INFO.githubUrl} target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">{PERSONAL_INFO.githubUrl}</a></p>
+            <p>LinkedIn: <a href={PERSONAL_INFO.linkedinUrl} target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">{PERSONAL_INFO.linkedinUrl}</a></p>
           </div>
         );
         break;

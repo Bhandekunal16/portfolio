@@ -139,7 +139,7 @@ export const Contact: React.FC<ContactProps> = ({ onCopyEmail, copiedEmail }) =>
               <a
                 href={PERSONAL_INFO.githubUrl}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-slate-700 hover:bg-slate-900 transition-all flex flex-col justify-between group"
               >
                 <div className="flex items-center justify-between mb-3">
@@ -157,7 +157,7 @@ export const Contact: React.FC<ContactProps> = ({ onCopyEmail, copiedEmail }) =>
               <a
                 href={PERSONAL_INFO.linkedinUrl}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-slate-700 hover:bg-slate-900 transition-all flex flex-col justify-between group"
               >
                 <div className="flex items-center justify-between mb-3">

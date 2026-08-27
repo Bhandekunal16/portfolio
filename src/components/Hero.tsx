@@ -88,7 +88,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreProjects, onContactClick })
                 <a
                   href={PERSONAL_INFO.githubUrl}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 hover:text-cyan-300 text-slate-300 transition-all hover:scale-105"
                   aria-label="GitHub Profile"
                 >
@@ -97,7 +97,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreProjects, onContactClick })
                 <a
                   href={PERSONAL_INFO.linkedinUrl}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 hover:text-cyan-300 text-slate-300 transition-all hover:scale-105"
                   aria-label="LinkedIn Profile"
                 >

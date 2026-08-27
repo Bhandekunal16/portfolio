@@ -42,7 +42,7 @@ export const Footer: React.FC<FooterProps> = ({ onCopyEmail, copiedEmail }) => {
             <a
               href={PERSONAL_INFO.githubUrl}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="p-2 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/40 hover:text-cyan-300 text-slate-300 transition-all"
               aria-label="GitHub Profile"
             >
@@ -51,7 +51,7 @@ export const Footer: React.FC<FooterProps> = ({ onCopyEmail, copiedEmail }) => {
             <a
               href={PERSONAL_INFO.linkedinUrl}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="p-2 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/40 hover:text-cyan-300 text-slate-300 transition-all"
               aria-label="LinkedIn Profile"
             >
