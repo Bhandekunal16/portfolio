@@ -173,37 +173,42 @@ export const engineer = {
 
   return (
     <div className="w-full rounded-2xl bg-slate-950/80 border border-slate-800 shadow-2xl backdrop-blur-xl overflow-hidden flex flex-col">
-      {/* Header Bar */}
-      <div className="flex items-center justify-between px-4 py-3 bg-slate-900/90 border-b border-slate-800/80 select-none">
-        <div className="flex items-center gap-2">
-          <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-full bg-rose-500/80 inline-block border border-rose-600/50" />
-            <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block border border-amber-600/50" />
-            <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block border border-emerald-600/50" />
+      {/* Header Bar - Fully Responsive */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 px-3.5 sm:px-4 py-2.5 sm:py-3 bg-slate-900/90 border-b border-slate-800/80 select-none">
+        {/* Left: Window Controls & Directory Info */}
+        <div className="flex items-center justify-between sm:justify-start gap-2 min-w-0">
+          <div className="flex items-center gap-1.5 shrink-0">
+            <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-rose-500/80 inline-block border border-rose-600/50" />
+            <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-amber-500/80 inline-block border border-amber-600/50" />
+            <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-500/80 inline-block border border-emerald-600/50" />
           </div>
-          <span className="text-xs font-mono text-slate-400 ml-2 flex items-center gap-1">
-            <TerminalIcon className="w-3.5 h-3.5 text-cyan-400" />
-            kunal-bhande@workspace: ~/architecture
+          <span className="text-[11px] sm:text-xs font-mono text-slate-400 ml-1 sm:ml-2 flex items-center gap-1.5 truncate">
+            <TerminalIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-cyan-400 shrink-0" />
+            <span className="truncate">
+              <span className="hidden md:inline text-slate-500">kunal-bhande@workspace:</span>
+              <span className="text-cyan-300 font-medium">~/architecture</span>
+            </span>
           </span>
         </div>
 
-        {/* Tab Buttons */}
-        <div className="flex items-center gap-1 bg-slate-950/70 p-1 rounded-lg border border-slate-800">
+        {/* Right: Tab Buttons with Responsive Labels & Full Grid on Mobile */}
+        <div className="flex items-center gap-1 bg-slate-950/80 p-0.5 sm:p-1 rounded-lg border border-slate-800 shrink-0 w-full sm:w-auto justify-between sm:justify-start">
           <button
             onClick={() => setActiveTab('cli')}
-            className={`px-2.5 py-1 rounded text-xs font-mono transition-all ${
+            className={`flex-1 sm:flex-initial px-2.5 sm:px-3 py-1 rounded-md text-[11px] sm:text-xs font-mono transition-all text-center whitespace-nowrap ${
               activeTab === 'cli'
-                ? 'bg-cyan-500/20 text-cyan-300 font-semibold border border-cyan-500/30'
+                ? 'bg-cyan-500/20 text-cyan-300 font-semibold border border-cyan-500/40 shadow-sm'
                 : 'text-slate-400 hover:text-slate-200'
             }`}
           >
-            Interactive CLI
+            <span className="sm:hidden">CLI</span>
+            <span className="hidden sm:inline">Interactive CLI</span>
           </button>
           <button
             onClick={() => setActiveTab('architecture')}
-            className={`px-2.5 py-1 rounded text-xs font-mono transition-all ${
+            className={`flex-1 sm:flex-initial px-2.5 sm:px-3 py-1 rounded-md text-[11px] sm:text-xs font-mono transition-all text-center whitespace-nowrap ${
               activeTab === 'architecture'
-                ? 'bg-cyan-500/20 text-cyan-300 font-semibold border border-cyan-500/30'
+                ? 'bg-cyan-500/20 text-cyan-300 font-semibold border border-cyan-500/40 shadow-sm'
                 : 'text-slate-400 hover:text-slate-200'
             }`}
           >
@@ -211,13 +216,14 @@ export const engineer = {
           </button>
           <button
             onClick={() => setActiveTab('npm')}
-            className={`px-2.5 py-1 rounded text-xs font-mono transition-all ${
+            className={`flex-1 sm:flex-initial px-2.5 sm:px-3 py-1 rounded-md text-[11px] sm:text-xs font-mono transition-all text-center whitespace-nowrap ${
               activeTab === 'npm'
-                ? 'bg-cyan-500/20 text-cyan-300 font-semibold border border-cyan-500/30'
+                ? 'bg-cyan-500/20 text-cyan-300 font-semibold border border-cyan-500/40 shadow-sm'
                 : 'text-slate-400 hover:text-slate-200'
             }`}
           >
-            NPM Ecosystem
+            <span className="sm:hidden">Packages</span>
+            <span className="hidden sm:inline">NPM Ecosystem</span>
           </button>
         </div>
       </div>
@@ -315,7 +321,7 @@ export const engineer = {
                   <a
                     href={pkg.npmUrl}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="text-[10px] text-indigo-400 hover:text-indigo-300 underline"
                   >
                     View on npmjs.com
